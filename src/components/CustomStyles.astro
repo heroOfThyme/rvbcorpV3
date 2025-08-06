@@ -1,63 +1,64 @@
 ---
+// Modern font imports for agency website
+import '@fontsource/ubuntu';
 import '@fontsource-variable/inter';
+import '@fontsource/poppins';
 
-// 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
+// Alternative options if you want to try different combinations:
+// import '@fontsource-variable/space-grotesk';
+// import '@fontsource/outfit/400.css';
+// import '@fontsource/outfit/500.css';
+// import '@fontsource/outfit/600.css';
 ---
 
 <style is:inline>
   :root {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    /* Typography - Default (we'll primarily use dark mode) */
+    --aw-font-sans: 'Inter Variable', system-ui, -apple-system, sans-serif;
+    --aw-font-serif: 'Inter Variable', system-ui, -apple-system, sans-serif;
+    --aw-font-heading: 'Ubuntu', system-ui, -apple-system, sans-serif;
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* Colors - Light mode (minimal, since we're dark-first) */
+    --aw-color-primary: rgb(119, 118, 255);
+    --aw-color-secondary: rgb(97, 97, 210);
+    --aw-color-accent: rgb(246, 0, 172);
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    --aw-color-text-heading: rgb(15, 15, 15);
+    --aw-color-text-default: rgb(55, 55, 55);
+    --aw-color-text-muted: rgb(100, 100, 100);
+    --aw-color-bg-page: rgb(255, 255, 255);
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    --aw-color-bg-page-dark: rgb(5, 5, 5);
 
     ::selection {
-      background-color: lavender;
+      background-color: rgba(119, 118, 255, 0.2);
+      color: inherit;
     }
   }
 
   .dark {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    /* Typography - Dark mode optimized */
+    --aw-font-sans: 'Inter Variable', system-ui, -apple-system, sans-serif;
+    --aw-font-serif: 'Poppins', system-ui, -apple-system, sans-serif;
+    --aw-font-heading: 'Ubuntu', system-ui, -apple-system, sans-serif;
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* Modern vibrant color palette for dark mode */
+    --aw-color-primary: rgb(119, 118, 255); /* Vibrant purple */
+    --aw-color-secondary: rgb(97, 97, 210); /* Darker purple */
+    --aw-color-accent: rgb(198, 134, 255); /* Light purple accent */
 
-    --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(3 6 32);
+    /* Text colors optimized for dark background */
+    --aw-color-text-heading: rgb(255, 255, 255); /* Pure white for headings */
+    --aw-color-text-default: rgb(229, 236, 246); /* Slightly off-white for body */
+    --aw-color-text-muted: rgba(229, 236, 246, 0.7); /* Muted version */
 
+    /* Dark background */
+    --aw-color-bg-page: rgb(5, 5, 5); /* Almost black */
+
+    /* Selection styling for dark mode */
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: rgba(119, 118, 255, 0.3);
+      color: rgb(255, 255, 255);
     }
   }
 </style>

@@ -3,7 +3,6 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -20,33 +19,32 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
-
   <Hero
+    tagline="Burlington's Web Agency"
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        icon: 'tabler:arrow-right',
+        text: 'Lets Get Started',
+        href: '/contact#form',
       },
-      { text: 'Learn more', href: '#features' },
+      {
+        variant: 'secondary',
+        icon: 'tabler:briefcase',
+        text: 'See Our Work',
+        href: '/portfolio',
+      },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro 5.0</span> + Tailwind CSS
+      Tailored <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Web Solutions</span>
     </Fragment>
-
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 5.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+      Burlington's local web agency, our specialty is the web, including web development, automation, Google services,
+      SEO, and more. Partner with us to transform your digital landscape and stay ahead in the competitive market.</Fragment
+    >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary to-accent"></div>
     </Fragment>
   </Hero>
 
@@ -54,49 +52,101 @@ const metadata = {
 
   <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
 
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
+  <!-- Services Section *************** -->
+  <Features2
+    id="Services"
+    tagline="Services"
+    title="Your Digital Landscape. Covered."
+    subtitle="We offer a range of services to help your business succeed online. From web development to Google services, hosting and more, we have you covered."
     items={[
+      // Web Dev Service
       {
-        title: 'Astro + Tailwind CSS Integration',
+        title: 'Web Development',
         description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
+          'We build websites tailored to your business needs. We focus on creating websites that effectively communicate your brand and drive growth.',
+        icon: 'tabler:code-dots',
+        callToAction: {
+          text: 'Explore This Service',
+          href: '/web-development',
+          target: '_self',
+          variant: 'primary',
+        },
+        classes: {
+          panel: 'service-card',
+          description: 'text-lg',
+        },
       },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
+
+      // SEO Service
       {
         title: 'Search Engine Optimization (SEO)',
         description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
+          'Our SEO services are designed to increase your website’s visibility in search engine results. We use proven strategies to boost your rank.',
+        icon: 'tabler:checklist',
+        callToAction: {
+          text: 'Explore This Service',
+          href: '/search-engine-optimization',
+          target: '_self',
+          variant: 'primary',
+        },
+        classes: {
+          panel: 'service-card',
+          description: 'text-lg',
+        },
       },
+
+      // Business Process Automation Service
       {
-        title: 'Open to new ideas and contributions',
+        title: 'Business Process Automation',
         description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+          'Our automation services streamline your operations, reduce manual tasks, and increase accuracy. Let technology work for you.',
+        icon: 'tabler:arrows-left-right',
+        callToAction: {
+          text: 'Explore This Service',
+          href: '/business-process-automation',
+          target: '_self',
+          variant: 'primary',
+        },
+        classes: {
+          panel: 'service-card',
+          description: 'text-lg',
+        },
+      },
+
+      // Google Business Management Service
+      {
+        title: 'Google Business Management',
+        description:
+          'Utilize the Google ecosystem to your advantage. From My Business to Ads, Analytics and more, we have services for every Google product.',
+        icon: 'tabler:brand-google-filled',
+        callToAction: {
+          text: 'Explore This Service',
+          href: '/google-business-management',
+          target: '_self',
+          variant: 'primary',
+        },
+        classes: {
+          panel: 'service-card',
+          description: 'text-lg',
+        },
+      },
+
+      // Web Hosting Service
+      {
+        title: 'Web Hosting',
+        description:
+          'We provide reliable, secure web hosting solutions that ensure your website is always accessible and performing optimally.',
+        icon: 'tabler:server',
+        callToAction: {
+          text: 'Explore This Service',
+          href: '/web-hosting',
+          target: '_self',
+          variant: 'primary',
+        },
+        classes: {
+          panel: 'service-card',
+          description: 'text-lg',
+        },
       },
     ]}
   />
