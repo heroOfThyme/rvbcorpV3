@@ -10,6 +10,7 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import ServiceCards from '~/components/widgets/ServiceCards.astro';
 
 const metadata = {
   title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
@@ -52,7 +53,6 @@ const metadata = {
 
   <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
 
-  <!-- Services Section *************** -->
   <Features2
     id="Services"
     tagline="Services"
@@ -147,6 +147,44 @@ const metadata = {
           panel: 'service-card',
           description: 'text-lg',
         },
+      },
+    ]}
+  />
+
+  <!-- Services Section *************** -->
+  <ServiceCards
+    title="Explore our diverse templates"
+    subtitle="Discover our selection below to streamline and elevate your projects."
+    services={[
+      {
+        title: 'Web Development',
+        description:
+          'We build websites tailored to your business needs. We focus on creating websites that effectively communicate your brand and drive growth.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Search Engine Optimization (SEO)',
+        description:
+          "Our SEO services are designed to increase your website's visibility in search engine results. We use proven strategies to boost your rank.",
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Business Process Automation',
+        description:
+          'Our automation services streamline your operations, reduce manual tasks, and increase accuracy. Let technology work for you.',
+        icon: 'tabler:arrow-right',
+      },
+      {
+        title: 'Google Business Management',
+        description:
+          'Utilize the Google ecosystem to your advantage. From My Business to Ads, Analytics and more, we have services for every Google product.',
+        icon: 'tabler:brand-google',
+      },
+      {
+        title: 'Web Hosting',
+        description:
+          'We provide reliable, secure web hosting solutions that ensure your website is always accessible and performing optimally.',
+        icon: 'tabler:server',
       },
     ]}
   />
