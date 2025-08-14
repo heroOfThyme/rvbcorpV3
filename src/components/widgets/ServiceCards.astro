@@ -1,26 +1,8 @@
 ---
-import { Icon } from 'astro-icon/components';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Headline from '~/components/ui/Headline.astro';
+import { Icon } from 'astro-icon/components';
 import Button from '~/components/ui/Button.astro';
-import type { Widget } from '~/types';
-
-interface ServiceItem {
-  title: string;
-  description: string;
-  icon?: string;
-  callToAction?: {
-    text: string;
-    href: string;
-  };
-}
-
-export interface Props extends Widget {
-  title?: string;
-  subtitle?: string;
-  tagline?: string;
-  services?: ServiceItem[];
-}
+import ServiceHeading from '../ui/ServiceHeading.astro';
 
 const {
   title = await Astro.slots.render('title'),
@@ -33,190 +15,57 @@ const {
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 
-// Use your brand colors with variations - matching the exact gradients from your image
+// Beautiful gradient combinations matching Features2
 const cardGradients = [
   'from-primary via-primary/90 to-secondary',      // Purple gradient
   'from-accent via-accent/90 to-primary',          // Pink to purple  
   'from-secondary via-secondary/90 to-primary',    // Blue-purple gradient
-  'from-primary via-accent/80 to-secondary',       // Mixed brand gradient
-  'from-accent via-secondary/80 to-primary',       // Another brand mix
 ];
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+  <ServiceHeading title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
   
-  <!-- Horizontal Scrolling Container -->
-  <div class="relative">
-    <div class="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth scrollbar-hide">
-      {services.map((service, index) => (
-        <div class="flex-none w-[300px] sm:w-[350px] md:w-[400px] snap-center">
-          <!-- Service Card -->
-          <div class={`relative h-[450px] bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-3xl p-8 group hover:scale-[1.02] transition-all duration-300 flex flex-col`}>
-            
-            <!-- Icon Container -->
-            {service.icon && (
-              <div class="mb-6">
-                <div class="w-20 h-20 bg-white/15 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20">
-                  <Icon
-                    name={service.icon}
-                    class="w-10 h-10 text-white"
-                  />
-                </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {services.map(({ title: serviceTitle, description, icon, callToAction }, index) => (
+      <div class="group">
+        <div class={`relative h-[400px] bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-3xl p-8 flex flex-col hover:scale-[1.02] transition-all duration-300`}>
+          
+          <!-- Icon Container -->
+          {icon && (
+            <div class="mb-6">
+              <div class="w-16 h-16 bg-white/15 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20">
+                <Icon name={icon} class="w-8 h-8 text-white" />
               </div>
-            )}
+            </div>
+          )}
 
-            <!-- Title -->
+          <!-- Title -->
+          {serviceTitle && (
             <h3 class="text-2xl font-bold text-white mb-4 leading-tight">
-              {service.title}
+              {serviceTitle}
             </h3>
-            
-            <!-- Description -->
+          )}
+          
+          <!-- Description -->
+          {description && (
             <p class="text-white/90 leading-relaxed mb-6 flex-grow">
-              {service.description}
+              {description}
             </p>
+          )}
 
-            <!-- CTA Button - glassmorphic style at bottom -->
+          <!-- CTA Button -->
+          {callToAction && (
             <Button
-              text="Explore This Service"
-              href={service.callToAction?.href || '#'}
+              {...callToAction}
               class="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-6 py-4 rounded-2xl transition-all duration-300 border border-white/30 hover:border-white/50 mt-auto"
             />
+          )}
 
-            <!-- Hover overlay -->
-            <div class="absolute inset-0 bg-white/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-          </div>
+          <!-- Subtle hover overlay -->
+          <div class="absolute inset-0 bg-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
         </div>
-      ))}
-    </div>
-
-    <!-- Scroll Indicators -->
-    <div class="flex justify-center mt-8 gap-2">
-      {services.map((_, index) => (
-        <div
-          class="w-2 h-2 rounded-full bg-slate-600 transition-all duration-200 scroll-dot"
-          data-index={index}
-        />
-      ))}
-    </div>
+      </div>
+    ))}
   </div>
 </WidgetWrapper>
-
-<style>
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log('ServiceCards script loading...');
-    
-    const container = document.querySelector('.scrollbar-hide');
-    const dots = document.querySelectorAll('.scroll-dot');
-    
-    console.log('Found container:', !!container);
-    console.log('Found dots:', dots.length);
-    
-    if (!container || dots.length === 0) {
-      console.log('Elements not found, retrying in 500ms...');
-      setTimeout(() => {
-        initServiceCards();
-      }, 500);
-      return;
-    }
-    
-    // Set first dot as active initially
-    dots[0]?.classList.add('bg-primary', 'w-8');
-    dots[0]?.classList.remove('bg-slate-600', 'w-2');
-    
-    // Update active dot on scroll
-    function updateActiveDot() {
-      const scrollLeft = container.scrollLeft;
-      const cardWidth = 432; // 400px card + 32px gap
-      const activeIndex = Math.round(scrollLeft / cardWidth);
-      const clampedIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
-      
-      console.log('Scroll:', scrollLeft, 'Active index:', clampedIndex);
-      
-      dots.forEach((dot, index) => {
-        dot.classList.remove('bg-primary', 'w-8', 'bg-slate-600', 'w-2');
-        
-        if (index === clampedIndex) {
-          dot.classList.add('bg-primary', 'w-8');
-        } else {
-          dot.classList.add('bg-slate-600', 'w-2');
-        }
-      });
-    }
-    
-    // Handle dot clicks
-    dots.forEach((dot, index) => {
-      dot.style.cursor = 'pointer';
-      dot.addEventListener('click', () => {
-        const cardWidth = 432;
-        const scrollPosition = cardWidth * index;
-        
-        console.log('Clicking dot:', index, 'Scrolling to:', scrollPosition);
-        
-        container.scrollTo({
-          left: scrollPosition,
-          behavior: 'smooth'
-        });
-      });
-    });
-    
-    // Listen for scroll events
-    container.addEventListener('scroll', updateActiveDot);
-    
-    console.log('ServiceCards initialized successfully!');
-  });
-  
-  function initServiceCards() {
-    const container = document.querySelector('.scrollbar-hide');
-    const dots = document.querySelectorAll('.scroll-dot');
-    
-    if (!container || dots.length === 0) return;
-    
-    // Same logic as above but in a function for retries
-    dots[0]?.classList.add('bg-primary', 'w-8');
-    dots[0]?.classList.remove('bg-slate-600', 'w-2');
-    
-    function updateActiveDot() {
-      const scrollLeft = container.scrollLeft;
-      const cardWidth = 432;
-      const activeIndex = Math.round(scrollLeft / cardWidth);
-      const clampedIndex = Math.max(0, Math.min(activeIndex, dots.length - 1));
-      
-      dots.forEach((dot, index) => {
-        dot.classList.remove('bg-primary', 'w-8', 'bg-slate-600', 'w-2');
-        
-        if (index === clampedIndex) {
-          dot.classList.add('bg-primary', 'w-8');
-        } else {
-          dot.classList.add('bg-slate-600', 'w-2');
-        }
-      });
-    }
-    
-    dots.forEach((dot, index) => {
-      dot.style.cursor = 'pointer';
-      dot.addEventListener('click', () => {
-        const cardWidth = 432;
-        container.scrollTo({
-          left: cardWidth * index,
-          behavior: 'smooth'
-        });
-      });
-    });
-    
-    container.addEventListener('scroll', updateActiveDot);
-  }
-  
-  // For Astro page transitions
-  document.addEventListener('astro:page-load', initServiceCards);
-</script>

@@ -1,8 +1,7 @@
 ---
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
-import { Icon } from 'astro-icon/components';
-import Button from '~/components/ui/Button.astro';
+import ItemGrid2 from '~/components/ui/ItemGrid2.astro';
 import type { Features as Props } from '~/types';
 
 const {
@@ -10,139 +9,30 @@ const {
   subtitle = await Astro.slots.render('subtitle'),
   tagline = await Astro.slots.render('tagline'),
   items = [],
+  columns = 3,
+  defaultIcon,
 
   id,
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
-
-// Use your brand colors with variations
-const cardGradients = [
-  'from-primary via-primary/90 to-secondary',      // Purple gradient
-  'from-accent via-accent/90 to-primary',          // Pink to purple  
-  'from-secondary via-secondary/90 to-primary',    // Blue-purple gradient
-  'from-primary via-accent/80 to-secondary',       // Mixed brand gradient
-  'from-accent via-secondary/80 to-primary',       // Another brand mix
-];
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
-  
-  <!-- Horizontal Scrolling Container -->
-  <div class="relative">
-    <div class="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth scrollbar-hide">
-      {items.map(({ title: itemTitle, description, icon, callToAction, classes: itemClasses = {} }, index) => (
-        <div class="flex-none w-[300px] sm:w-[350px] md:w-[400px] snap-center">
-          <!-- Service Card -->
-          <div class={`relative h-[450px] bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-3xl p-8 group hover:scale-[1.02] transition-all duration-300 flex flex-col`}>
-            
-            <!-- Icon Container -->
-            {(icon) && (
-              <div class="mb-6">
-                <div class="w-20 h-20 bg-white/15 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20">
-                  <Icon
-                    name={icon}
-                    class="w-10 h-10 text-white"
-                  />
-                </div>
-              </div>
-            )}
-
-            <!-- Title -->
-            {itemTitle && (
-              <h3 class="text-2xl font-bold text-white mb-4 leading-tight">
-                {itemTitle}
-              </h3>
-            )}
-            
-            <!-- Description -->
-            {description && (
-              <p class="text-white/90 leading-relaxed mb-6 flex-grow">
-                {description}
-              </p>
-            )}
-
-            <!-- CTA Button - at bottom of card -->
-            {callToAction && (
-              <Button
-                {...callToAction}
-                class="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-6 py-4 rounded-2xl transition-all duration-300 border border-white/30 hover:border-white/50 mt-auto"
-              />
-            )}
-
-            <!-- Hover overlay -->
-            <div class="absolute inset-0 bg-white/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <!-- Scroll Indicators -->
-    <div class="flex justify-center mt-8 gap-2">
-      {items.map((_, index) => (
-        <div
-          class="w-2 h-2 rounded-full bg-slate-600 transition-all duration-200 scroll-dot"
-          data-index={index}
-        />
-      ))}
-    </div>
-  </div>
+  <ItemGrid2
+    items={items}
+    columns={columns}
+    defaultIcon={defaultIcon}
+    classes={{
+      container: 'gap-4 md:gap-6',
+      panel:
+        'rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 p-6',
+      // panel:
+      //   "text-center bg-page items-center md:text-left rtl:md:text-right md:items-start p-6 p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-800",
+      icon: 'w-12 h-12 mb-6 text-primary',
+      ...((classes?.items as Record<string, never>) ?? {}),
+    }}
+  />
 </WidgetWrapper>
-
-<style>
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const container = document.querySelector('.overflow-x-auto');
-    const dots = document.querySelectorAll('.scroll-dot');
-    
-    if (container && dots.length > 0) {
-      // Update active dot on scroll
-      const updateActiveDot = () => {
-        const scrollLeft = container.scrollLeft;
-        const cardWidth = 350; // Approximate card width + gap
-        const activeIndex = Math.round(scrollLeft / cardWidth);
-        
-        dots.forEach((dot, index) => {
-          if (index === activeIndex) {
-            dot.classList.add('bg-primary', 'w-8');
-            dot.classList.remove('bg-slate-600', 'w-2');
-          } else {
-            dot.classList.remove('bg-primary', 'w-8');
-            dot.classList.add('bg-slate-600', 'w-2');
-          }
-        });
-      };
-
-      // Handle dot clicks
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          const cardWidth = 350;
-          container.scrollTo({
-            left: cardWidth * index,
-            behavior: 'smooth'
-          });
-        });
-      });
-
-      // Listen for scroll events
-      container.addEventListener('scroll', updateActiveDot);
-      
-      // Initialize first dot as active
-      if (dots[0]) {
-        dots[0].classList.add('bg-primary', 'w-8');
-        dots[0].classList.remove('bg-slate-600', 'w-2');
-      }
-    }
-  });
-</script>

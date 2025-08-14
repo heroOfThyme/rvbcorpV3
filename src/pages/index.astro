@@ -44,9 +44,6 @@ const metadata = {
       Burlington's local web agency, our specialty is the web, including web development, automation, Google services,
       SEO, and more. Partner with us to transform your digital landscape and stay ahead in the competitive market.</Fragment
     >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary to-accent"></div>
-    </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
@@ -153,8 +150,10 @@ const metadata = {
 
   <!-- Services Section *************** -->
   <ServiceCards
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
+    id="Services"
+    tagline="Services"
+    title="Your Digital Landscape. Covered."
+    subtitle="We offer a range of services to help your business succeed online. From web development to Google services, hosting and more, we have you covered."
     services={[
       {
         title: 'Web Development',
@@ -185,6 +184,12 @@ const metadata = {
         description:
           'We provide reliable, secure web hosting solutions that ensure your website is always accessible and performing optimally.',
         icon: 'tabler:server',
+        callToAction: {
+          text: 'Explore This Service',
+          href: '/web-hosting',
+          target: '_self',
+          variant: 'primary',
+        },
       },
     ]}
   />
