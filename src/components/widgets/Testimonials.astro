@@ -3,6 +3,7 @@ import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
+import { Icon } from 'astro-icon/components';
 import type { Testimonials as Props } from '~/types';
 
 const {
@@ -17,59 +18,78 @@ const {
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+// Subtle gradient combinations for testimonial cards  
+const testimonialGradients = [
+  'from-primary/5 via-transparent to-accent/5',
+  'from-accent/5 via-transparent to-secondary/5',
+  'from-secondary/5 via-transparent to-primary/5',
+];
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    {
-      testimonials &&
-        testimonials.map(({ title, testimonial, name, job, image }) => (
-          <div class="flex h-auto intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter">
-            <div class="flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
-              {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
-              {testimonial && (
-                <blockquote class="flex-auto">
-                  <p class="text-muted">" {testimonial} "</p>
-                </blockquote>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+    {testimonials &&
+      testimonials.map(({ title, testimonial, name, job, image }, index) => (
+        <div class="group h-full">
+          <div class={`relative bg-gradient-to-br ${testimonialGradients[index % testimonialGradients.length]} rounded-2xl p-6 border border-white/10 hover:border-primary/20 transition-all duration-300 h-full flex flex-col backdrop-blur-sm`}>
+            
+            <!-- Quote Icon -->
+            <div class="mb-4">
+              <Icon name="tabler:quote" class="w-8 h-8 text-primary/60" />
+            </div>
+
+            {title && <h2 class="text-lg font-medium leading-6 pb-4 text-white">{title}</h2>}
+            
+            {testimonial && (
+              <blockquote class="flex-auto mb-6">
+                <p class="text-white/80 leading-relaxed">"{testimonial}"</p>
+              </blockquote>
+            )}
+
+            <!-- Client Info -->
+            <footer class="flex items-center gap-4 mt-auto pt-4 border-t border-white/10">
+              {image ? (
+                <div class="h-10 w-10 rounded-full border border-white/20 overflow-hidden">
+                  {typeof image === 'string' ? (
+                    <Fragment set:html={image} />
+                  ) : (
+                    <Image
+                      class="h-10 w-10 rounded-full object-cover"
+                      width={40}
+                      height={40}
+                      widths={[400, 768]}
+                      layout="fixed"
+                      {...image}
+                    />
+                  )}
+                </div>
+              ) : (
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                  <span class="text-white font-semibold text-sm">
+                    {name ? name.split(' ').map(n => n[0]).join('').slice(0, 2) : '?'}
+                  </span>
+                </div>
               )}
 
-              <hr class="border-slate-200 dark:border-slate-600 my-4" />
-
-              <div class="flex items-center">
-                {image && (
-                  <div class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600">
-                    {typeof image === 'string' ? (
-                      <Fragment set:html={image} />
-                    ) : (
-                      <Image
-                        class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full"
-                        width={40}
-                        height={40}
-                        widths={[400, 768]}
-                        layout="fixed"
-                        {...image}
-                      />
-                    )}
-                  </div>
-                )}
-
-                <div class="grow ml-3 rtl:ml-0 rtl:mr-3">
-                  {name && <p class="text-base font-semibold">{name}</p>}
-                  {job && <p class="text-xs text-muted">{job}</p>}
-                </div>
+              <div class="flex-1">
+                {name && <p class="text-base font-semibold text-white">{name}</p>}
+                {job && <p class="text-xs text-white/60">{job}</p>}
               </div>
-            </div>
+            </footer>
+
+            <!-- Subtle hover overlay -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/2 via-transparent to-accent/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"></div>
           </div>
-        ))
-    }
+        </div>
+      ))}
   </div>
-  {
-    callToAction && (
-      <div class="flex justify-center mx-auto w-fit mt-8 md:mt-12 font-medium">
-        <Button {...callToAction} />
-      </div>
-    )
-  }
+  
+  {callToAction && (
+    <div class="flex justify-center mx-auto w-fit mt-8 md:mt-12 font-medium">
+      <Button {...callToAction} />
+    </div>
+  )}
 </WidgetWrapper>

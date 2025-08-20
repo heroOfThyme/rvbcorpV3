@@ -11,8 +11,8 @@ const {
 
 const {
   container: containerClass = 'max-w-4xl',
-  title: titleClass = 'text-4xl md:text-5xl lg:text-6xl',
-  subtitle: subtitleClass = 'text-xl md:text-2xl',
+  title: titleClass = 'text-3xl md:text-4xl',
+  subtitle: subtitleClass = 'text-xl',
 } = classes;
 ---
 
@@ -20,10 +20,10 @@ const {
   (title || subtitle || tagline) && (
     <div class={twMerge('mb-12 md:mb-16 text-left', containerClass)}>
       {tagline && (
-        <p
-          class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase mb-3"
-          set:html={tagline}
-        />
+        <div class="flex items-center justify-start gap-2 text-primary dark:text-primary mb-4">
+          <span class="text-lg">{'>'}</span>
+          <p class="text-sm font-medium tracking-wide uppercase" set:html={tagline} />
+        </div>
       )}
       {title && (
         <h2

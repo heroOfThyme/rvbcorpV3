@@ -1,0 +1,137 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+import { Icon } from 'astro-icon/components';
+import type { Widget } from '~/types';
+
+interface Props extends Widget {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  image?: string;
+  values?: Array<{
+    title: string;
+    description: string;
+    icon: string;
+  }>;
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  image,
+  values = [],
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+
+  <!-- Main About Content -->
+  <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16">
+    
+    <!-- Content Side -->
+    <div class="space-y-6">
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <p class="text-white/80 leading-relaxed">
+          Welcome to <span class="text-primary font-semibold">RVB Data Sciences Corp</span>, where our passion for software development fuels our commitment to helping Burlington businesses utilize the amazing technology the world has to offer.
+        </p>
+        <p class="text-white/80 leading-relaxed">
+          We believe in fostering lasting relationships and delivering adaptable, scalable solutions that grow with your business. Every project is an opportunity to create something meaningful that drives real results.
+        </p>
+      </div>
+
+      <!-- Quick Stats or Highlights -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-gradient-to-br from-primary/10 to-accent/5 rounded-xl p-4 border border-white/10">
+          <div class="text-2xl font-bold text-primary mb-1">3+</div>
+          <div class="text-sm text-white/70">Local Businesses Served</div>
+        </div>
+        <div class="bg-gradient-to-br from-accent/10 to-secondary/5 rounded-xl p-4 border border-white/10">
+          <div class="text-2xl font-bold text-accent mb-1">100%</div>
+          <div class="text-sm text-white/70">Client Satisfaction</div>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="pt-4">
+        <Button
+          href="/contact"
+          variant="primary"
+          class="px-6 py-3"
+        >
+          Work With Us
+        </Button>
+      </div>
+    </div>
+
+    <!-- Image Side -->
+    <div class="lg:order-last">
+      {image ? (
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl opacity-50"></div>
+          <Image
+            src={image}
+            alt="RVB Team"
+            class="relative rounded-2xl shadow-2xl w-full"
+            width={500}
+            height={400}
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div class="relative bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl p-12 text-center border border-white/10">
+          <Icon name="tabler:user" class="w-24 h-24 mx-auto mb-4 text-white/60" />
+          <p class="text-white/80 text-lg font-medium mb-2">Your Photo Here</p>
+          <p class="text-white/60 text-sm">Confidence is building! 📸</p>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <!-- Values Section -->
+  {values.length > 0 && (
+    <div class="space-y-8">
+      <div class="text-center">
+        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Our Core Values</h3>
+        <p class="text-white/70 max-w-2xl mx-auto">
+          The foundation that guides everything we do and shapes how we work with our clients.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {values.map((value, index) => (
+          <div class="relative group">
+            <div class="bg-gradient-to-br from-white/5 to-white/10 rounded-2xl p-6 border border-white/10 hover:border-primary/30 transition-all duration-300 h-full">
+              
+              <!-- Icon -->
+              <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-4">
+                <Icon name={value.icon} class="w-6 h-6 text-white" />
+              </div>
+
+              <!-- Number -->
+              <div class="text-primary/60 text-sm font-mono mb-2">0{index + 1}</div>
+
+              <!-- Title -->
+              <h4 class="text-xl font-bold text-white mb-3">{value.title}</h4>
+
+              <!-- Description -->
+              <p class="text-white/70 leading-relaxed">{value.description}</p>
+
+              <!-- Hover effect -->
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+</WidgetWrapper>
