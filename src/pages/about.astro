@@ -1,227 +1,260 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import AboutSection from '~/components/widgets/AboutSection.astro';
+import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
-import Layout from '~/layouts/PageLayout.astro';
+import Note from '~/components/widgets/Note.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'About us',
+  title: 'About Us - Learn About Our Company | RVB Data Sciences',
+  description:
+    "Discover RVB Data Sciences Corp - Burlington's passionate web development team helping businesses harness technology. Learn about our values, expertise, and commitment to excellence.",
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
+  <!-- Hero Section -->
   <Hero
-    tagline="About us"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
-    }}
+    tagline="About Us"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Started',
+        href: '/contact',
+        icon: 'tabler:arrow-right',
+      },
+      {
+        text: 'View Our Work',
+        href: '/portfolio',
+        variant: 'secondary',
+      },
+    ]}
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      Discover Our <span class="text-primary">Business</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      Welcome to RVB Data Sciences Corp, where our passion for software development fuels our commitment to helping
+      businesses utilize the amazing technology the world has to offer.
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="relative mx-auto max-w-5xl">
+        <img
+          class="mx-auto h-auto w-full rounded-2xl shadow-2xl"
+          src="/_astro/about-us-main.B5NO6ZdH.webp"
+          alt="RVB Team Coding Away"
+          loading="eager"
+          width="1024"
+          height="576"
+        />
+      </div>
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
 
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
-    ]}
-  />
+  <!-- Mission Statement Banner -->
+  <Note />
 
-  <!-- Features3 Widget ************** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
 
-  <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
-    columns={3}
-    isBeforeContent={true}
-    items={[
+  <!-- Core Values Section -->
+  <AboutSection
+    tagline="Our Foundation"
+    title="Why We <span class='text-primary'>Stand Out</span>"
+    subtitle="Our core values guide everything we do and shape how we work with our clients"
+    values={[
       {
-        title: 'Educational',
+        title: 'Integrity',
         description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+          'We believe in maintaining transparency and honesty in all our dealings, fostering strong relationships with our clients. We go through all contracts and agreements with you to ensure you understand everything.',
+        icon: 'tabler:shield-check',
       },
       {
-        title: 'Interior Design',
+        title: 'Excellence',
         description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Photography',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
-      },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
+          'We are committed to delivering high-quality solutions that exceed your expectations, ensuring that you are satisfied with the final product. We strive for excellence in everything we do.',
         icon: 'tabler:award',
       },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
       {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
+        title: 'Collaboration',
+        description:
+          'We believe in working closely with our clients to understand their unique needs and challenges, fostering a collaborative environment that drives results. We value your input and feedback throughout the process.',
+        icon: 'tabler:users',
       },
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
 
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
+  <!-- Why Choose Us Section -->
+  <GradientFeatures
+    tagline="Why Choose Us"
+    title="Going <span class='text-primary'>Above & Beyond</span>"
+    subtitle="Most companies don't go to the lengths we do to ensure your satisfaction. We are committed to delivering solutions that exceed expectations."
     items={[
       {
-        title: 'Chat with us',
+        title: 'Customized Solutions',
         description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
+          'We offer customized solutions tailored to your unique needs, ensuring that you get the results you want. We work closely with you to understand your goals and challenges.',
+        icon: 'tabler:puzzle',
       },
       {
-        title: 'Call us',
+        title: 'Expert Team',
         description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
+          'Our team of experts has years of experience in software development, web design, and digital marketing, ensuring that you get the best solutions for your business.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Transparency & Communication',
+        description:
+          'We believe in maintaining open and honest communication with our clients, keeping you informed throughout the process with regular updates.',
+        icon: 'tabler:message-circle',
+      },
+      {
+        title: 'Local Burlington Focus',
+        description:
+          'As a Burlington-based agency, we understand the local market and are committed to helping businesses in our community thrive and grow.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Cutting-Edge Technology',
+        description:
+          'We stay up-to-date on the latest trends and technologies to deliver cutting-edge solutions that drive real results for your business.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Ongoing Support',
+        description:
+          "Our relationship doesn't end at launch. We provide ongoing support, training, and maintenance to ensure your continued success.",
+        icon: 'tabler:lifebuoy',
+      },
+    ]}
+  />
+
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Technology Stack Section -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <div class="flex items-center justify-center gap-2 text-primary mb-4">
+          <span class="text-lg font-mono">|</span>
+          <p class="text-sm font-medium tracking-wide uppercase font-mono">Technology Stack</p>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold leading-tighter tracking-tighter font-heading text-white mb-4">
+          What We <span class="text-primary">Use</span>
+        </h2>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">
+          A glimpse into the modern technologies we use to build your solutions
+        </p>
+      </div>
+
+      <!-- Technology Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        {
+          [
+            { name: 'React', icon: 'tabler:brand-react' },
+            { name: 'Astro', icon: 'tabler:rocket' },
+            { name: 'TypeScript', icon: 'tabler:brand-typescript' },
+            { name: 'Tailwind CSS', icon: 'tabler:palette' },
+            { name: 'Node.js', icon: 'tabler:brand-nodejs' },
+            { name: 'Google Cloud', icon: 'tabler:brand-google' },
+          ].map((tech, index) => {
+            const cardGradients = [
+              'from-primary via-primary/90 to-secondary',
+              'from-accent via-accent/90 to-primary',
+              'from-secondary via-secondary/90 to-primary',
+            ];
+
+            return (
+              <div
+                class={`bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-2xl p-4 hover:scale-[1.02] transition-all duration-300 text-center group`}
+              >
+                <Icon name={tech.icon} class="w-8 h-8 text-white mx-auto mb-3" />
+                <span class="text-white/90 text-sm font-medium">{tech.name}</span>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Client Testimonials -->
+  <Testimonials
+    tagline="Client Success"
+    title="Words from Our <span class='text-primary'>Amazing</span> Clients"
+    subtitle="Our favourite part of this job is helping out members of our local communities"
+    testimonials={[
+      {
+        testimonial:
+          "Petar worked so hard for me. I'm almost 60 and retired. I needed one page simple website for my new business. He listened and created perfectly what I needed. He's very patient as I am not tech savvy! Thank you!!",
+        name: 'Donna Irving',
+        job: 'Seniors Helper - Owner',
+      },
+      {
+        testimonial:
+          'Great service. Working on improving SEO constantly. Easy to get a hold of and replies usually within hours. Changes are made the same day. We both continue to adjust the website if we notice where improvements can be made.',
+        name: 'Alex Orton',
+        job: 'Legacy Exteriors Inc - Owner',
+      },
+      {
+        testimonial:
+          "RVB did an outstanding job on our website. The team was professional, creative, and attentive to our vision. We felt supported every step of the way and couldn't be happier with our results. Highly recommend their web development services!",
+        name: 'Slavko Vidakovic',
+        job: 'S&V Memorials - Owner',
+      },
+    ]}
+  />
+
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Stats Section -->
+  <Stats
+    title="Our <span class='text-primary'>Impact</span>"
+    subtitle="The numbers reflect our commitment to excellence and the trust our clients place in us"
+    stats={[
+      { title: 'Local Businesses Served', amount: '15+', icon: 'tabler:building-store' },
+      { title: 'Years of Experience', amount: '5+', icon: 'tabler:calendar' },
+      { title: 'Client Satisfaction', amount: '100%', icon: 'tabler:heart' },
+      { title: 'Projects Completed', amount: '25+', icon: 'tabler:check' },
+    ]}
+  />
+
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Final CTA -->
+  <CallToAction
+    tagline="Ready to Start?"
+    title="Let's Build Something <span class='text-primary'>Amazing</span> Together"
+    subtitle="Contact us today to discuss your project and discover how we can help you achieve your goals."
+    actions={[
+      {
+        text: 'Start Your Project',
+        href: '/contact',
+        icon: 'tabler:arrow-right',
+        variant: 'primary',
+      },
+      {
+        text: 'View Our Work',
+        href: '/portfolio',
+        variant: 'secondary',
       },
     ]}
   />

@@ -1,0 +1,319 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import PricingCards from '~/components/widgets/PricingCards.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Web Development Services | RVB Corp - Burlington Web Agency',
+  description:
+    'Professional web development services in Burlington. Custom websites, e-commerce solutions, and digital experiences that drive growth for your business.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <Hero
+    tagline="Web Development"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Start Your Project',
+        href: '/contact#form',
+        icon: 'tabler:arrow-right',
+      },
+      {
+        variant: 'secondary',
+        text: 'View Our Process',
+        href: '#process',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Transform Your Business with <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+        >Web Development</span
+      > Solutions
+    </Fragment>
+    <Fragment slot="subtitle">
+      We are experts in crafting custom web solutions that drive results. From stunning designs to seamless
+      functionality, we build websites that engage users, boost conversions, and grow your business in Burlington and
+      beyond.
+    </Fragment>
+  </Hero>
+
+  <!-- Service Overview Section -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <div class="text-primary text-sm font-semibold uppercase tracking-wide mb-4">What We Offer</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Building Your Digital Foundation</h2>
+        <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+          Our comprehensive web development services are designed to help businesses create a strong online presence. We
+          offer everything from design to deployment.
+        </p>
+      </div>
+
+      <!-- Service Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="bg-gradient-to-br from-primary via-primary/90 to-secondary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
+        >
+          <div
+            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
+          >
+            <Icon name="tabler:palette" class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Custom Design & UI/UX</h3>
+          <p class="text-white/90 leading-relaxed">
+            Your brand's first impression matters. We create custom, user-friendly designs that look great and deliver
+            exceptional functionality.
+          </p>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-accent via-accent/90 to-primary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
+        >
+          <div
+            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
+          >
+            <Icon name="tabler:rocket" class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Performance Optimization</h3>
+          <p class="text-white/90 leading-relaxed">
+            Fast websites keep visitors engaged and improve search rankings. We write efficient code to ensure
+            lightning-quick load times.
+          </p>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-secondary via-secondary/90 to-primary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
+        >
+          <div
+            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
+          >
+            <Icon name="tabler:edit" class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Professional Content</h3>
+          <p class="text-white/90 leading-relaxed">
+            Your message matters. We provide content creation services including website copy, engaging blog posts, and
+            photo editing.
+          </p>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-primary via-primary/90 to-secondary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
+        >
+          <div
+            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
+          >
+            <Icon name="tabler:search" class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">SEO Integration</h3>
+          <p class="text-white/90 leading-relaxed">
+            We optimize your website for search engines, helping improve rankings and drive more organic traffic to your
+            site.
+          </p>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-accent via-accent/90 to-primary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
+        >
+          <div
+            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
+          >
+            <Icon name="tabler:server" class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Secure Hosting</h3>
+          <p class="text-white/90 leading-relaxed">
+            High-performance hosting solutions keep your site running smoothly with fast load times, consistent uptime,
+            and dedicated support.
+          </p>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-secondary via-secondary/90 to-primary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
+        >
+          <div
+            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
+          >
+            <Icon name="tabler:shopping-cart" class="w-6 h-6 text-white" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">E-commerce Solutions</h3>
+          <p class="text-white/90 leading-relaxed">
+            Turn your website into a powerful sales platform with secure checkout, product displays, and growth-focused
+            e-commerce experiences.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Process Section -->
+  <Steps
+    id="process"
+    title="We Make It Easy"
+    subtitle="Our streamlined 5-step process ensures your project runs smoothly from concept to launch"
+    tagline="Our Process"
+    items={[
+      {
+        title: 'Consultation & Agreement',
+        description:
+          'We start by understanding your unique needs and goals. Our team crafts a detailed proposal outlining scope, timelines, and cost.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Planning & Design',
+        description:
+          'We gather all necessary information and create a project plan, then move to the design phase where we create your website designs.',
+        icon: 'tabler:layout-dashboard',
+      },
+      {
+        title: 'Development & Testing',
+        description:
+          'Our developers bring designs to life using best coding practices, building websites that are visually appealing and highly functional.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Deployment',
+        description:
+          'Once everything is tested and approved by you, we deploy the website and make it live for the world to see.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Post-Launch Support',
+        description:
+          "Our relationship doesn't end at deployment. We offer ongoing support to fix issues and ensure smooth operation.",
+        icon: 'tabler:headset',
+      },
+    ]}
+    classes={{
+      container: 'max-w-4xl',
+    }}
+  />
+
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Pricing Section -->
+  <PricingCards
+    title="We Have the Right Plan for You"
+    subtitle="Choose the package that best fits your needs and budget. We offer a range of web development packages to help you get started with your online presence."
+    tagline="Our Packages"
+    packages={[
+      {
+        title: 'basic',
+        description: 'For Those Just Starting Out',
+        features: [
+          '1-5 Page Website',
+          'Brand Integration',
+          'Mobile Responsive Design',
+          '1 Year Hosting Included',
+          '3 Revisions',
+        ],
+        callToAction: {
+          text: 'Get Started',
+          href: '/contact',
+        },
+      },
+      {
+        title: 'business',
+        description: 'For Growing Businesses',
+        isPopular: true,
+        features: [
+          'Everything in Basic',
+          '5 Additional Pages',
+          '10 Stock Images',
+          'Agency Supplied Content',
+          '10 Revisions',
+          'Domain Purchasing',
+          'Basic SEO Package',
+        ],
+        callToAction: {
+          text: 'Most Popular',
+          href: '/contact',
+        },
+      },
+      {
+        title: 'premium',
+        description: 'For Established Businesses',
+        features: [
+          'Everything in Business',
+          '10 Additional Pages',
+          '20 Additional Stock Images',
+          'Custom Features',
+          'Ecommerce Store Setup',
+          'Advanced SEO Package',
+          'Custom Email Setup',
+          'Unlimited Revisions',
+        ],
+        callToAction: {
+          text: 'Go Premium',
+          href: '/contact',
+        },
+        note: 'If you require more advanced or custom solutions, please contact us.',
+      },
+    ]}
+  />
+
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Why Choose Us Section -->
+  <Content
+    title="Why Choose RVB Corp for Web Development?"
+    subtitle="Burlington's trusted web development partner"
+    items={[
+      {
+        title: 'Local Burlington Expertise',
+        description:
+          'We understand the local market and can help your business connect with Burlington customers effectively.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Scalable Solutions',
+        description:
+          'We build websites that grow with your business, ensuring your site can handle increased traffic and functionality as you expand.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Modern Technology Stack',
+        description:
+          'We use the latest web technologies and frameworks to ensure your website is fast, secure, and future-proof.',
+        icon: 'tabler:device-laptop',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/hero-image.png',
+      alt: 'Web Development Team at Work',
+    }}
+  />
+
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Final CTA -->
+  <CallToAction
+    tagline="Ready to Start?"
+    title="Let's Build Something <span class='text-primary'>Amazing</span> Together"
+    subtitle="Transform your digital presence with our expert web development services. From concept to launch, we'll bring your vision to life."
+    actions={[
+      {
+        text: 'Start Your Project',
+        href: '/contact',
+        icon: 'tabler:arrow-right',
+      },
+      {
+        text: 'View Our Portfolio',
+        href: '/portfolio',
+        variant: 'secondary',
+      },
+    ]}
+  />
+</Layout>
