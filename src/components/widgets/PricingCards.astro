@@ -21,9 +21,9 @@ const {
 
   <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch">
     {
-      packages.map((pkg, index) => (
+      packages.map((pkg) => (
         <div
-          class={`relative rounded-3xl p-8 flex flex-col h-1/2 ${
+          class={`relative rounded-3xl p-8 flex flex-col h-full ${
             pkg.isPopular
               ? 'bg-gradient-to-br from-primary to-accent'
               : 'bg-inherit border border-primary'
@@ -31,7 +31,7 @@ const {
         >
           {pkg.isPopular && (
             <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <span class="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium">MOST POPULAR</span>
+              <span class="bg-page text-white px-4 py-2 rounded-full text-sm font-medium border-2 border-primary">MOST POPULAR</span>
             </div>
           )}
 
