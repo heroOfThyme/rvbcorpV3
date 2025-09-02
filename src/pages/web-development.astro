@@ -204,11 +204,12 @@ const metadata = {
   <!-- Pricing Section -->
   <PricingCards
     title="We Have the Right Plan for You"
-    subtitle="Choose the package that best fits your needs and budget. We offer a range of web development packages to help you get started with your online presence."
+    subtitle="Choose the package that best fits your needs and budget."
     tagline="Our Packages"
     packages={[
       {
         title: 'basic',
+        price: '$399',
         description: 'For Those Just Starting Out',
         features: [
           '1-5 Page Website',
@@ -224,6 +225,7 @@ const metadata = {
       },
       {
         title: 'business',
+        price: '$1499',
         description: 'For Growing Businesses',
         isPopular: true,
         features: [
@@ -232,9 +234,8 @@ const metadata = {
           '10 Stock Images',
           'Agency Supplied Content',
           '10 Revisions',
-          'Domain Purchasing',
-          'Basic SEO Package',
         ],
+        note: 'Most Popular',
         callToAction: {
           text: 'Most Popular',
           href: '/contact',
@@ -242,22 +243,19 @@ const metadata = {
       },
       {
         title: 'premium',
+        price: '$4999',
         description: 'For Established Businesses',
         features: [
           'Everything in Business',
-          '10 Additional Pages',
+          'Unlimited Pages',
           '20 Additional Stock Images',
           'Custom Features',
           'Ecommerce Store Setup',
-          'Advanced SEO Package',
-          'Custom Email Setup',
-          'Unlimited Revisions',
         ],
         callToAction: {
           text: 'Go Premium',
           href: '/contact',
         },
-        note: 'If you require more advanced or custom solutions, please contact us.',
       },
     ]}
   />
