@@ -5,7 +5,7 @@ import Steps from '~/components/widgets/Steps.astro';
 import PricingCards from '~/components/widgets/PricingCards.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Content from '~/components/widgets/Content.astro';
-import { Icon } from 'astro-icon/components';
+import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
 
 const metadata = {
   title: 'Web Development Services | RVB Corp - Burlington Web Agency',
@@ -44,179 +44,107 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <!-- Service Overview Section -->
-  <section class="py-16 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <!-- Header -->
-      <div class="text-center mb-16">
-        <div class="text-primary text-sm font-semibold uppercase tracking-wide mb-4">What We Offer</div>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Building Your Digital Foundation</h2>
-        <p class="text-gray-300 text-lg max-w-3xl mx-auto">
-          Our comprehensive web development services are designed to help businesses create a strong online presence. We
-          offer everything from design to deployment.
-        </p>
-      </div>
-
-      <!-- Service Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          class="bg-gradient-to-br from-primary via-primary/90 to-secondary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
-          >
-            <Icon name="tabler:palette" class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Custom Design & UI/UX</h3>
-          <p class="text-white/90 leading-relaxed">
-            Your brand's first impression matters. We create custom, user-friendly designs that look great and deliver
-            exceptional functionality.
-          </p>
-        </div>
-
-        <div
-          class="bg-gradient-to-br from-accent via-accent/90 to-primary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
-          >
-            <Icon name="tabler:rocket" class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Performance Optimization</h3>
-          <p class="text-white/90 leading-relaxed">
-            Fast websites keep visitors engaged and improve search rankings. We write efficient code to ensure
-            lightning-quick load times.
-          </p>
-        </div>
-
-        <div
-          class="bg-gradient-to-br from-secondary via-secondary/90 to-primary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
-          >
-            <Icon name="tabler:edit" class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Professional Content</h3>
-          <p class="text-white/90 leading-relaxed">
-            Your message matters. We provide content creation services including website copy, engaging blog posts, and
-            photo editing.
-          </p>
-        </div>
-
-        <div
-          class="bg-gradient-to-br from-primary via-primary/90 to-secondary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
-          >
-            <Icon name="tabler:search" class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">SEO Integration</h3>
-          <p class="text-white/90 leading-relaxed">
-            We optimize your website for search engines, helping improve rankings and drive more organic traffic to your
-            site.
-          </p>
-        </div>
-
-        <div
-          class="bg-gradient-to-br from-accent via-accent/90 to-primary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
-          >
-            <Icon name="tabler:server" class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Secure Hosting</h3>
-          <p class="text-white/90 leading-relaxed">
-            High-performance hosting solutions keep your site running smoothly with fast load times, consistent uptime,
-            and dedicated support.
-          </p>
-        </div>
-
-        <div
-          class="bg-gradient-to-br from-secondary via-secondary/90 to-primary rounded-2xl p-6 hover:scale-[1.02] transition-all duration-300"
-        >
-          <div
-            class="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 border border-white/20"
-          >
-            <Icon name="tabler:shopping-cart" class="w-6 h-6 text-white" />
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">E-commerce Solutions</h3>
-          <p class="text-white/90 leading-relaxed">
-            Turn your website into a powerful sales platform with secure checkout, product displays, and growth-focused
-            e-commerce experiences.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Divider -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+  <!-- Service Section -->
+  <GradientFeatures
+    id="services"
+    title="Building Your Digital Foundation"
+    subtitle="Our comprehensive web development services are designed to help businesses create a strong online presence. We offer everything from design to deployment."
+    tagline="What We Offer"
+    items={[
+      {
+        title: 'Custom Design & UI/UX',
+        description:
+          "Your brand's first impression matters. We create custom, user-friendly designs that look great and deliver exceptional functionality.",
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Performance Optimization',
+        description:
+          'Fast websites keep visitors engaged and improve search rankings. We write efficient code to ensure lightning-quick load times.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Professional Content',
+        description:
+          'Your message matters. We provide content creation services including website copy, engaging blog posts, and photo editing.',
+        icon: 'tabler:edit',
+      },
+      {
+        title: 'SEO Integration',
+        description:
+          'We optimize your website for search engines, helping improve rankings and drive more organic traffic to your site.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Secure Hosting',
+        description:
+          'High-performance hosting solutions keep your site running smoothly with fast load times, consistent uptime, and dedicated support.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'E-commerce Solutions',
+        description:
+          'Turn your website into a powerful sales platform with secure checkout, product displays, and growth-focused e-commerce experiences.',
+        icon: 'tabler:shopping-cart',
+      },
+    ]}
+  />
 
   <!-- Process Section -->
   <Steps
     id="process"
-    title="We Make It Easy"
-    subtitle="Our streamlined 5-step process ensures your project runs smoothly from concept to launch"
-    tagline="Our Process"
+    title="Our Development Process"
+    subtitle="A proven methodology that ensures your project is delivered on time, on budget, and exceeds expectations."
+    tagline="How We Work"
     items={[
       {
-        title: 'Consultation & Agreement',
+        title: '1. Discovery & Planning',
         description:
-          'We start by understanding your unique needs and goals. Our team crafts a detailed proposal outlining scope, timelines, and cost.',
-        icon: 'tabler:users',
+          'We start by understanding your business goals, target audience, and technical requirements to create a comprehensive project roadmap.',
+        icon: 'tabler:search',
       },
       {
-        title: 'Planning & Design',
+        title: '2. Design & Prototyping',
         description:
-          'We gather all necessary information and create a project plan, then move to the design phase where we create your website designs.',
-        icon: 'tabler:layout-dashboard',
+          'Our designers create wireframes and mockups that bring your vision to life, ensuring every element serves a purpose.',
+        icon: 'tabler:palette',
       },
       {
-        title: 'Development & Testing',
+        title: '3. Development & Testing',
         description:
-          'Our developers bring designs to life using best coding practices, building websites that are visually appealing and highly functional.',
+          'We build your website using the latest technologies, rigorously testing every feature to ensure flawless performance.',
         icon: 'tabler:code',
       },
       {
-        title: 'Deployment',
+        title: '4. Launch & Optimization',
         description:
-          'Once everything is tested and approved by you, we deploy the website and make it live for the world to see.',
+          'After a successful launch, we monitor performance and make data-driven optimizations to maximize your results.',
         icon: 'tabler:rocket',
       },
-      {
-        title: 'Post-Launch Support',
-        description:
-          "Our relationship doesn't end at deployment. We offer ongoing support to fix issues and ensure smooth operation.",
-        icon: 'tabler:headset',
-      },
     ]}
-    classes={{
-      container: 'max-w-4xl',
+    image={{
+      src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Web development process illustration',
     }}
   />
 
-  <!-- Section Divider -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-
   <!-- Pricing Section -->
   <PricingCards
-    title="We Have the Right Plan for You"
-    subtitle="Choose the package that best fits your needs and budget."
-    tagline="Our Packages"
+    title="Web Development Packages"
+    subtitle="Choose the perfect package for your business needs"
+    tagline="Pricing"
     packages={[
       {
-        title: 'basic',
-        price: '$399',
-        description: 'For Those Just Starting Out',
+        title: 'Starter Website',
+        price: '$750',
+        description: 'Perfect for small businesses looking to establish their online presence',
         features: [
-          '1-5 Page Website',
-          'Brand Integration',
-          'Mobile Responsive Design',
-          '1 Year Hosting Included',
-          '3 Revisions',
+          'Up to 5 pages',
+          'Mobile responsive design',
+          'Basic SEO optimization',
+          'Contact form integration',
+          '1 year hosting',
+          'Domain purchasing & setup',
         ],
         callToAction: {
           text: 'Get Started',
@@ -224,54 +152,58 @@ const metadata = {
         },
       },
       {
-        title: 'business',
+        title: 'Professional Website',
         price: '$1499',
-        description: 'For Growing Businesses',
-        isPopular: true,
+        description: 'Ideal for growing businesses that need advanced functionality',
         features: [
-          'Everything in Basic',
-          '5 Additional Pages',
-          '10 Stock Images',
-          'Agency Supplied Content',
-          '10 Revisions',
+          'Up to 15 pages',
+          'Custom design & branding',
+          'Advanced SEO optimization',
+          'CMS integration',
+          '1 year hosting',
+          'Domain purchasing & setup',
+          'Performance optimization',
+          'Social media integration',
         ],
-        note: 'Most Popular',
+        isPopular: true,
         callToAction: {
-          text: 'Most Popular',
+          text: 'Choose Professional',
           href: '/contact',
         },
       },
       {
-        title: 'premium',
-        price: '$4999',
-        description: 'For Established Businesses',
+        title: 'Enterprise Solution',
+        price: 'Custom',
+        description: 'Comprehensive solutions for large organizations with complex needs',
         features: [
-          'Everything in Business',
-          'Unlimited Pages',
-          '20 Additional Stock Images',
-          'Custom Features',
-          'Ecommerce Store Setup',
+          'Unlimited pages',
+          'Custom web applications',
+          'Advanced integrations',
+          'Multi-language support',
+          'Custom CMS development',
+          '12 months support',
+          'Dedicated project manager',
+          'Training & documentation',
         ],
         callToAction: {
-          text: 'Go Premium',
+          text: 'Contact Us',
           href: '/contact',
         },
       },
     ]}
   />
 
-  <!-- Section Divider -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-
-  <!-- Why Choose Us Section -->
+  <!-- Benefits Section -->
   <Content
-    title="Why Choose RVB Corp for Web Development?"
-    subtitle="Burlington's trusted web development partner"
+    id="benefits"
+    isReversed
+    title="Why Choose Our Web Development Services?"
+    subtitle="We combine technical expertise with business understanding to deliver websites that drive real results."
+    content="<p>Our team doesn't just build websites—we create digital experiences that connect with your audience and drive business growth. Every project is approached with a focus on your unique goals and challenges.</p><p>From the initial consultation to post-launch support, we're committed to delivering solutions that exceed expectations and provide long-term value for your business.</p>"
     items={[
       {
         title: 'Local Burlington Expertise',
-        description:
-          'We understand the local market and can help your business connect with Burlington customers effectively.',
+        description: 'Deep understanding of the local market and business landscape.',
         icon: 'tabler:map-pin',
       },
       {
@@ -285,6 +217,12 @@ const metadata = {
         description:
           'We use the latest web technologies and frameworks to ensure your website is fast, secure, and future-proof.',
         icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'Ongoing Support',
+        description:
+          "Our relationship doesn't end at launch. We provide ongoing maintenance and support to keep your site running smoothly.",
+        icon: 'tabler:headset',
       },
     ]}
     image={{

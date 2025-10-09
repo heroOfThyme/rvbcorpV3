@@ -1,0 +1,277 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features from '~/components/widgets/Features.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+const metadata = {
+  title: 'Search Engine Optimization Services | Dominate Search Rankings',
+  description:
+    'Transform your online visibility with our expert SEO services. Drive organic traffic, increase conversions, and outrank competitors with proven strategies.',
+  keywords: 'SEO services, search engine optimization, organic traffic, keyword research, local SEO, technical SEO',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section ******************* -->
+  <Hero
+    tagline="SEO THAT DELIVERS"
+    title="Dominate Search Rankings & <em>Drive Organic Growth</em>"
+    subtitle="Transform your online visibility with data-driven SEO strategies that deliver measurable results. Get found by customers actively searching for your services."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Free SEO Audit',
+        href: '#audit',
+        icon: 'tabler:search',
+      },
+      {
+        text: 'View Case Studies',
+        href: '#results',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80',
+      alt: 'SEO Analytics Dashboard showing growth metrics and search rankings',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+    </Fragment>
+  </Hero>
+
+  <!-- Core SEO Services ************** -->
+  <GradientFeatures
+    id="services"
+    title="Complete SEO Solutions"
+    subtitle="Everything you need to dominate search results and drive qualified traffic to your website."
+    tagline="OUR SERVICES"
+    items={[
+      {
+        title: 'Keyword Research & Strategy',
+        description:
+          'Deep-dive keyword analysis to identify high-converting search terms your customers actually use. We find the golden opportunities your competitors are missing.',
+        icon: 'tabler:target-arrow',
+      },
+      {
+        title: 'Technical SEO Optimization',
+        description:
+          'Fix crawlability issues, improve site speed, mobile optimization, and schema markup. We ensure search engines can easily find and index your content.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Content Optimization',
+        description:
+          'Create and optimize high-quality content that ranks well and converts visitors into customers. Every page becomes a lead generation machine.',
+        icon: 'tabler:edit',
+      },
+      {
+        title: 'Local SEO Domination',
+        description:
+          'Dominate local search results with Google My Business optimization, local citations, and geo-targeted content strategies.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Authority Link Building',
+        description:
+          'Earn high-quality backlinks from authoritative websites in your industry. Build domain authority that search engines trust.',
+        icon: 'tabler:link',
+      },
+      {
+        title: 'Analytics & Reporting',
+        description:
+          'Track rankings, traffic, conversions, and ROI with detailed monthly reports. See exactly how SEO impacts your bottom line.',
+        icon: 'tabler:chart-line',
+      },
+    ]}
+  />
+
+  <!-- SEO Process Section ************ -->
+  <Features3
+    id="process"
+    title="Our Proven SEO Process"
+    subtitle="A systematic approach that delivers consistent results for businesses like yours."
+    tagline="HOW WE WORK"
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'SEO strategy planning and analytics dashboard',
+    }}
+    columns={3}
+    items={[
+      {
+        title: '1. Deep Dive Audit',
+        description:
+          'Comprehensive analysis of your current SEO performance, technical issues, and competitive landscape.',
+        icon: 'tabler:search',
+      },
+      {
+        title: '2. Strategy Development',
+        description: 'Custom SEO roadmap based on your business goals, target audience, and market opportunities.',
+        icon: 'tabler:list',
+      },
+      {
+        title: '3. Implementation',
+        description: 'Execute technical fixes, content optimization, and authority building campaigns with precision.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: '4. Monitor & Optimize',
+        description: 'Continuous tracking, testing, and refinement to maximize your ROI and maintain rankings.',
+        icon: 'tabler:adjustments',
+      },
+    ]}
+  />
+
+  <!-- Results & Benefits Section **** -->
+  <Content
+    id="results"
+    isReversed
+    title="Results That Speak for Themselves"
+    subtitle="Our SEO strategies deliver measurable business growth"
+    content="<p>Don't just take our word for it. Our proven SEO methodologies have helped businesses across industries achieve remarkable growth in organic traffic, search rankings, and most importantly - revenue.</p><p>We focus on metrics that matter to your business: qualified leads, conversions, and ROI. Every strategy is tailored to your specific industry, competition, and business goals.</p>"
+    items={[
+      {
+        title: '300% Average Traffic Increase',
+        description: 'Our clients see dramatic organic traffic growth within 6-12 months.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Top 3 Rankings for Target Keywords',
+        description: 'We consistently get businesses ranking on page 1 for their most valuable search terms.',
+        icon: 'tabler:trophy',
+      },
+      {
+        title: '150% Boost in Qualified Leads',
+        description: 'More traffic means more customers. Our SEO attracts visitors ready to buy.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Measurable ROI Growth',
+        description: 'Track every dollar invested in SEO with clear attribution to revenue growth.',
+        icon: 'tabler:chart-arrows-vertical',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'SEO growth charts and performance metrics dashboard',
+    }}
+    callToAction={{
+      text: 'See Full Case Studies →',
+      href: '#case-studies',
+      variant: 'link',
+    }}
+  />
+
+  <!-- Why Choose Us Section ********* -->
+  <Features
+    id="why-us"
+    title="Why Businesses Choose Our SEO Services"
+    subtitle="Experience the difference that comes from working with SEO experts who understand your business"
+    tagline="THE ADVANTAGE"
+    columns={2}
+    items={[
+      {
+        title: 'Proven Track Record',
+        description:
+          'Years of experience delivering first-page rankings for businesses across industries. We know what works.',
+        icon: 'tabler:award',
+      },
+      {
+        title: 'Transparent Reporting',
+        description:
+          'No black-box tactics. Get detailed monthly reports showing exactly what we did and the results achieved.',
+        icon: 'tabler:report',
+      },
+      {
+        title: 'White-Hat Techniques Only',
+        description: 'We follow Google guidelines strictly. Build long-term organic growth without risking penalties.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Custom Strategy for Your Business',
+        description:
+          'No cookie-cutter approaches. Every strategy is tailored to your specific industry and competitive landscape.',
+        icon: 'tabler:puzzle',
+      },
+      {
+        title: 'Dedicated SEO Specialist',
+        description: 'Work directly with an experienced SEO professional who understands your business and goals.',
+        icon: 'tabler:user-check',
+      },
+      {
+        title: 'Continuous Optimization',
+        description:
+          'SEO never stops. We continuously monitor, test, and optimize to maintain and improve your rankings.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  />
+
+  <!-- FAQ Section ******************* -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Get answers to common questions about our SEO services"
+    tagline="FAQ"
+    columns={2}
+    items={[
+      {
+        title: 'How long does it take to see SEO results?',
+        description:
+          'Most clients see initial improvements in 3-4 months, with significant results in 6-12 months. SEO is a long-term investment that builds momentum over time.',
+      },
+      {
+        title: 'Do you guarantee #1 rankings?',
+        description:
+          "We focus on getting you on page 1 for your target keywords. While we can't guarantee specific positions, our track record shows consistent first-page results.",
+      },
+      {
+        title: 'What makes your SEO different?',
+        description:
+          'We combine technical expertise with business understanding. Every strategy is custom-built for your industry, competition, and revenue goals.',
+      },
+      {
+        title: 'Do you work with small businesses?',
+        description:
+          'Absolutely! We work with businesses of all sizes and have packages designed specifically for small and medium businesses.',
+      },
+      {
+        title: 'How do you measure SEO success?',
+        description:
+          "We track rankings, organic traffic, leads, conversions, and ROI. You'll receive detailed monthly reports showing exactly how SEO impacts your business.",
+      },
+      {
+        title: "What if I'm not satisfied with results?",
+        description:
+          "We're confident in our approach, but if you're not seeing progress after 6 months, we'll work with you to adjust the strategy or provide additional services.",
+      },
+    ]}
+  />
+
+  <!-- CTA Section ******************* -->
+  <CallToAction
+    id="audit"
+    title="Ready to Dominate Search Results?"
+    subtitle="Get a free, comprehensive SEO audit and discover exactly what's holding your website back from ranking higher."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Your Free SEO Audit',
+        href: '/contact',
+        icon: 'tabler:search',
+      },
+      {
+        text: 'Schedule Strategy Call',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-90"></div>
+    </Fragment>
+  </CallToAction>
+</Layout>

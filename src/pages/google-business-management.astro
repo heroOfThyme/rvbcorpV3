@@ -1,0 +1,282 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features from '~/components/widgets/Features.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+const metadata = {
+  title: 'Google Business Management Services | Maximize Your Google Presence',
+  description:
+    'Unlock the full potential of Google for your business. Expert management of Google My Business, Ads, Analytics, and more. Drive traffic, gain insights, and dominate local search.',
+  keywords:
+    'Google Business Management, Google My Business, Google Ads, Google Analytics, local SEO, Google Workspace, digital marketing',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section ******************* -->
+  <Hero
+    tagline="GOOGLE EXPERTISE"
+    title="Dominate Google & <em>Maximize Your Reach</em>"
+    subtitle="Unlock the full potential of Google's ecosystem for your business. From local search dominance to data-driven advertising, we help you leverage Google's billions of daily searches to drive growth."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Google Audit',
+        href: '#audit',
+        icon: 'tabler:brand-google',
+      },
+      {
+        text: 'View Success Stories',
+        href: '#results',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2127&q=80',
+      alt: 'Google Business Management dashboard showing analytics and performance metrics',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+    </Fragment>
+  </Hero>
+
+  <!-- Core Google Services ************** -->
+  <GradientFeatures
+    id="services"
+    title="Complete Google Ecosystem Management"
+    subtitle="Harness the power of Google's suite of business tools to drive traffic, generate leads, and gain valuable customer insights."
+    tagline="GOOGLE SERVICES"
+    items={[
+      {
+        title: 'Google My Business Optimization',
+        description:
+          'Complete GMB management including profile setup, reviews management, posts, photos, and local SEO optimization. Dominate local search results.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: 'Google Ads Management',
+        description:
+          'Strategic Google Ads campaigns that deliver your ideal customers. Maximize ROI with expert keyword research, ad copy, and bid optimization.',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Google Analytics & Insights',
+        description:
+          'Deep-dive analytics and custom reporting to understand user behavior, track conversions, and make data-driven business decisions.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Google Workspace Setup',
+        description:
+          "Professional email, cloud storage, and collaboration tools. Streamline your business operations with Google's productivity suite.",
+        icon: 'tabler:apps',
+      },
+      {
+        title: 'Google Shopping & Merchant',
+        description:
+          'Showcase your products directly in Google search results. Drive e-commerce sales with optimized product listings and shopping campaigns.',
+        icon: 'tabler:shopping-cart',
+      },
+      {
+        title: 'Google Tag Manager',
+        description:
+          'Advanced tracking implementation and management. Monitor user behavior, conversions, and campaign performance across all platforms.',
+        icon: 'tabler:tag',
+      },
+    ]}
+  />
+
+  <!-- Google Management Process ************ -->
+  <Features3
+    id="process"
+    title="Our Google Management Methodology"
+    subtitle="A systematic approach to maximizing your Google presence and achieving measurable business growth."
+    tagline="OUR PROCESS"
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Google business strategy and analytics planning session',
+    }}
+    items={[
+      {
+        title: '1. Google Ecosystem Audit',
+        description:
+          'Comprehensive analysis of your current Google presence and identification of optimization opportunities.',
+        icon: 'tabler:search',
+      },
+      {
+        title: '2. Strategic Setup & Optimization',
+        description:
+          'Complete configuration of all Google business tools aligned with your marketing objectives and target audience.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: '3. Campaign Launch & Management',
+        description:
+          'Deploy optimized campaigns, manage ongoing performance, and continuously refine strategies for maximum ROI.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: '4. Analytics & Optimization',
+        description:
+          'Regular performance analysis, detailed reporting, and data-driven optimizations to improve results over time.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+  />
+
+  <!-- Results & Benefits Section **** -->
+  <Content
+    id="results"
+    isReversed
+    title="Google Success That Drives Business Growth"
+    subtitle="See how strategic Google management transforms online visibility and customer acquisition"
+    content="<p>With billions of searches happening on Google every day, your business can't afford to be invisible. Our comprehensive Google management services ensure you capture your share of this massive audience through strategic optimization and expert campaign management.</p><p>From local businesses to e-commerce stores, our Google expertise delivers measurable results that directly impact your bottom line.</p>"
+    items={[
+      {
+        title: '400% Increase in Local Visibility',
+        description: 'Dominate local search results and attract more customers in your area.',
+        icon: 'tabler:eye',
+      },
+      {
+        title: '250% More Qualified Leads',
+        description: 'Generate high-quality leads through optimized Google Ads and local search presence.',
+        icon: 'tabler:users',
+      },
+      {
+        title: '3x Better Click-Through Rates',
+        description: 'Optimized ads and listings that capture attention and drive action.',
+        icon: 'tabler:click',
+      },
+      {
+        title: '180% ROI on Google Ads Spend',
+        description: 'Strategic campaign management that maximizes every advertising dollar.',
+        icon: 'tabler:cash',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80',
+      alt: 'Google Analytics dashboard showing business growth metrics',
+    }}
+    callToAction={{
+      text: 'See Client Success Stories →',
+      href: '#case-studies',
+      variant: 'link',
+    }}
+  />
+
+  <!-- Why Choose Us Section ********* -->
+  <Features
+    id="why-us"
+    title="Why Businesses Trust Us with Their Google Presence"
+    subtitle="Experience the difference that comes from working with certified Google experts who stay ahead of every update"
+    tagline="OUR EXPERTISE"
+    columns={2}
+    items={[
+      {
+        title: 'Google Certified Expertise',
+        description:
+          'Our team holds Google certifications and stays current with all platform updates, algorithm changes, and new feature releases.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Custom Google Strategy',
+        description:
+          'Tailored solutions designed for your specific business goals, industry, and target audience. No cookie-cutter approaches.',
+        icon: 'tabler:puzzle',
+      },
+      {
+        title: 'Dedicated Account Management',
+        description:
+          'Work directly with a dedicated Google specialist who understands your business and monitors your accounts daily.',
+        icon: 'tabler:user-check',
+      },
+      {
+        title: 'Transparent Performance Tracking',
+        description:
+          'Detailed monthly reports showing exactly what we did, what results we achieved, and how it impacts your business.',
+        icon: 'tabler:report',
+      },
+      {
+        title: 'Always Up-to-Date',
+        description:
+          "We stay ahead of Google's constant updates and changes, ensuring your business always leverages the latest features and best practices.",
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Continuous Optimization',
+        description:
+          'Ongoing analysis and refinement of all Google properties to maximize performance and maintain competitive advantage.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+  />
+
+  <!-- FAQ Section ******************* -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Get answers to common questions about Google Business Management"
+    tagline="FAQ"
+    columns={2}
+    items={[
+      {
+        title: 'What Google services do you manage?',
+        description:
+          'We manage the complete Google ecosystem including My Business, Ads, Analytics, Workspace, Shopping, Tag Manager, Search Console, and more.',
+      },
+      {
+        title: 'How quickly will I see results from Google Ads?',
+        description:
+          'Google Ads can generate traffic immediately, but we typically see optimal performance and ROI after 30-60 days of optimization and data collection.',
+      },
+      {
+        title: 'Do you provide Google Analytics reporting?',
+        description:
+          'Yes! We provide detailed monthly reports with actionable insights, performance metrics, and recommendations for improvement.',
+      },
+      {
+        title: 'Can you help with Google My Business reviews?',
+        description:
+          'Absolutely. We help manage your review strategy, respond to reviews professionally, and implement systems to encourage positive customer feedback.',
+      },
+      {
+        title: 'What makes your Google Ads management different?',
+        description:
+          'We focus on ROI, not just clicks. Our certified experts optimize for conversions, not vanity metrics, ensuring your ad spend drives real business results.',
+      },
+      {
+        title: 'How do you stay current with Google updates?',
+        description:
+          'Our team maintains Google certifications, attends industry conferences, and participates in Google partner programs to stay ahead of all changes and updates.',
+      },
+    ]}
+  />
+
+  <!-- CTA Section ******************* -->
+  <CallToAction
+    id="audit"
+    title="Ready to Dominate Google?"
+    subtitle="Get a comprehensive Google audit and discover exactly what's needed to maximize your online presence and drive more customers to your business."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Free Google Audit',
+        href: '/contact',
+        icon: 'tabler:brand-google',
+      },
+      {
+        text: 'Schedule Consultation',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-90"></div>
+    </Fragment>
+  </CallToAction>
+</Layout>

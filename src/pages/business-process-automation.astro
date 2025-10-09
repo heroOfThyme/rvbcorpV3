@@ -1,0 +1,279 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features from '~/components/widgets/Features.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+const metadata = {
+  title: 'Business Process Automation Services | Streamline Operations & Boost Efficiency',
+  description:
+    'Transform your business with our automation services. Eliminate manual tasks, reduce errors, and scale efficiently with custom automation solutions tailored to your needs.',
+  keywords:
+    'business process automation, workflow automation, task automation, API development, business efficiency, process optimization',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section ******************* -->
+  <Hero
+    tagline="AUTOMATION SOLUTIONS"
+    title="Transform Your Business with <em>Smart Automation</em>"
+    subtitle="Step into the new era of efficiency. Eliminate manual tasks, reduce errors, and scale your operations with intelligent automation solutions tailored to your business needs."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Free Assessment',
+        href: '#consultation',
+        icon: 'tabler:robot',
+      },
+      {
+        text: 'View Case Studies',
+        href: '#results',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1518186233392-c232efbf2373?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80',
+      alt: 'Business Process Automation Dashboard showing workflow efficiency and analytics',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+    </Fragment>
+  </Hero>
+
+  <!-- Core Automation Services ************** -->
+  <GradientFeatures
+    id="services"
+    title="Complete Automation Solutions"
+    subtitle="Streamline operations, enhance efficiency, and drive growth with our comprehensive automation services designed to transform your business."
+    tagline="OUR SERVICES"
+    items={[
+      {
+        title: 'Automated Task Management',
+        description:
+          'Eliminate manual tasks and reduce errors with intelligent workflow automation. Free up your team to focus on high-value strategic work.',
+        icon: 'tabler:checklist',
+      },
+      {
+        title: 'Real-Time Analytics & Insights',
+        description:
+          'Gain deep insights into your business operations with automated reporting and real-time analytics. Make data-driven decisions with confidence.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'System Integration',
+        description:
+          'Seamlessly connect your existing systems and applications. Enable smooth data flow and communication across your entire tech stack.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Scalable Infrastructure',
+        description:
+          'Build automation that grows with your business. Our scalable solutions handle increased demand while maintaining consistent performance.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Custom API Development',
+        description:
+          'Connect disparate systems with custom APIs. Enable seamless data exchange and communication between all your business applications.',
+        icon: 'tabler:api',
+      },
+      {
+        title: '24/7 Monitoring & Support',
+        description:
+          'Round-the-clock monitoring ensures your automated processes run smoothly. Get instant alerts and expert support when needed.',
+        icon: 'tabler:headset',
+      },
+    ]}
+  />
+
+  <!-- Automation Process Section ************ -->
+  <Features3
+    id="process"
+    title="Our Proven Automation Process"
+    subtitle="A systematic approach that transforms your operations from manual to automated, delivering measurable efficiency gains."
+    tagline="HOW WE WORK"
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Business process automation workflow and strategy planning',
+    }}
+    items={[
+      {
+        title: '1. Consultation & Analysis',
+        description:
+          'Deep dive into your current processes to identify automation opportunities and develop a tailored strategy.',
+        icon: 'tabler:search',
+      },
+      {
+        title: '2. Strategy Development',
+        description:
+          'Create a comprehensive automation roadmap aligned with your business objectives and growth plans.',
+        icon: 'tabler:list',
+      },
+      {
+        title: '3. Implementation & Integration',
+        description:
+          'Deploy automation tools, integrate with existing systems, and conduct thorough testing for optimal performance.',
+        icon: 'tabler:settings-automation',
+      },
+      {
+        title: '4. Training & Optimization',
+        description: 'Provide team training and continuous optimization to maximize ROI and ensure long-term success.',
+        icon: 'tabler:school',
+      },
+    ]}
+  />
+
+  <!-- Results & Benefits Section **** -->
+  <Content
+    id="results"
+    isReversed
+    title="Measurable Results That Drive Growth"
+    subtitle="See how automation transforms business operations and delivers real ROI"
+    content="<p>Our automation solutions don't just reduce manual work—they transform entire business operations. Companies using our automation services typically see dramatic improvements in efficiency, accuracy, and scalability within months of implementation.</p><p>From small businesses to enterprise organizations, our tailored approach ensures every automation project delivers measurable value and sustainable growth.</p>"
+    items={[
+      {
+        title: '75% Reduction in Manual Tasks',
+        description: 'Eliminate repetitive work and free up your team for strategic initiatives.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: '90% Fewer Human Errors',
+        description: 'Automated processes ensure consistency and accuracy across all operations.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: '3x Faster Processing Times',
+        description: 'Accelerate workflows and deliver results to customers faster than ever.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: '300% ROI Within 12 Months',
+        description: 'Automation investments typically pay for themselves and deliver ongoing returns.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80',
+      alt: 'Business automation analytics showing efficiency improvements',
+    }}
+    callToAction={{
+      text: 'See Full Case Studies →',
+      href: '#case-studies',
+      variant: 'link',
+    }}
+  />
+
+  <!-- Why Choose Us Section ********* -->
+  <Features
+    id="why-us"
+    title="Why Businesses Choose Our Automation Services"
+    subtitle="Experience the difference that comes from working with automation experts who understand your business challenges"
+    tagline="OUR ADVANTAGES"
+    columns={2}
+    items={[
+      {
+        title: 'Customer-Centric Approach',
+        description:
+          'We put your business goals first, ensuring every automation solution drives real value and supports your growth objectives.',
+        icon: 'tabler:heart-handshake',
+      },
+      {
+        title: 'Adaptable Solutions',
+        description:
+          'Flexible automation that evolves with your business. Our solutions scale and adapt as your needs change.',
+        icon: 'tabler:adjustments',
+      },
+      {
+        title: 'Innovative Technology Stack',
+        description: 'Leverage cutting-edge automation tools and AI technologies to stay ahead of the competition.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Experienced Automation Team',
+        description:
+          'Years of experience in process automation across industries. We bring proven expertise to every project.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Quality Assurance',
+        description:
+          'Rigorous testing and quality control ensure your automated processes are reliable, efficient, and error-free.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Ongoing Support & Optimization',
+        description: 'Continuous monitoring and optimization ensure your automation delivers maximum value over time.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  />
+
+  <!-- FAQ Section ******************* -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Get answers to common questions about business process automation"
+    tagline="FAQ"
+    columns={2}
+    items={[
+      {
+        title: 'What types of processes can be automated?',
+        description:
+          'Almost any repetitive task can be automated, including data entry, report generation, customer communications, inventory management, invoicing, and workflow approvals.',
+      },
+      {
+        title: 'How long does it take to implement automation?',
+        description:
+          'Implementation timelines vary by complexity, but most automation projects are completed within 4-12 weeks. Simple workflows can be automated in days, while complex systems may take several months.',
+      },
+      {
+        title: 'Will automation replace my employees?',
+        description:
+          'Automation enhances human capabilities rather than replacing people. It eliminates tedious tasks, allowing your team to focus on creative, strategic, and relationship-building activities.',
+      },
+      {
+        title: 'How much does business automation cost?',
+        description:
+          'Costs vary based on complexity and scope. Most automation projects pay for themselves within 6-12 months through increased efficiency and reduced operational costs.',
+      },
+      {
+        title: 'Can automation work with our existing software?',
+        description:
+          'Yes! Our automation solutions integrate with virtually any existing software through APIs, custom connectors, or direct database connections.',
+      },
+      {
+        title: 'What if something goes wrong with the automation?',
+        description:
+          'We provide 24/7 monitoring and support. Most issues are detected and resolved automatically, but our team is always available for immediate assistance.',
+      },
+    ]}
+  />
+
+  <!-- CTA Section ******************* -->
+  <CallToAction
+    id="consultation"
+    title="Ready to Automate Your Business?"
+    subtitle="Get a free consultation and discover exactly how automation can transform your operations and boost your bottom line."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Free Assessment',
+        href: '/contact',
+        icon: 'tabler:arrow-right',
+      },
+      {
+        text: 'Schedule Strategy Call',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-90"></div>
+    </Fragment>
+  </CallToAction>
+</Layout>

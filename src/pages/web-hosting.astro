@@ -1,0 +1,309 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features from '~/components/widgets/Features.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import PricingCards from '~/components/widgets/PricingCards.astro';
+
+const metadata = {
+  title: 'Web Hosting Solutions | Fast, Secure & Reliable Hosting Services',
+  description:
+    'Professional web hosting solutions with 99.9% uptime guarantee. Fast, secure, and scalable hosting plans with 24/7 support, SSL certificates, and automated backups.',
+  keywords:
+    'web hosting, website hosting, secure hosting, reliable hosting, SSL certificate, website uptime, hosting support',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section ******************* -->
+  <Hero
+    tagline="RELIABLE HOSTING"
+    title="Fast, Secure & <em>Always Online</em> Hosting"
+    subtitle="Keep your website running smoothly with our professional hosting solutions. Benefit from 99.9% uptime, lightning-fast performance, and round-the-clock support that keeps your business online."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'View Hosting Plans',
+        href: '#pricing',
+        icon: 'tabler:server',
+      },
+      {
+        text: 'Get Started Now',
+        href: '/contact',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2134&q=80',
+      alt: 'Modern web hosting infrastructure with servers and cloud connectivity',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+    </Fragment>
+  </Hero>
+
+  <!-- Core Hosting Features ************** -->
+  <GradientFeatures
+    id="features"
+    title="Enterprise-Grade Hosting Features"
+    subtitle="Professional hosting solutions designed to keep your website fast, secure, and always accessible to your customers."
+    tagline="WHY CHOOSE US"
+    items={[
+      {
+        title: '99.9% Uptime Guarantee',
+        description:
+          'Your website stays online when your customers need it most. Our reliable infrastructure ensures maximum availability and consistent performance.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Lightning-Fast Performance',
+        description:
+          'Optimized servers and content delivery networks ensure your website loads quickly, improving user experience and search rankings.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: '24/7 Expert Support',
+        description:
+          'Round-the-clock technical support from hosting experts. Get help whenever you need it, ensuring your website runs smoothly at all times.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Bank-Level Security',
+        description:
+          'Secure data centers with modern redundancy and compliance standards. Your website and data are protected against all threats.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Automated Daily Backups',
+        description:
+          'Automatic backups of your website data and files ensure you can quickly recover from any data loss or server issues.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Free SSL Certificates',
+        description:
+          'Included SSL certificates encrypt data between your website and visitors, protecting sensitive information and boosting SEO.',
+        icon: 'tabler:certificate',
+      },
+    ]}
+  />
+
+  <!-- Hosting Benefits Section **** -->
+  <Content
+    id="benefits"
+    title="Why Professional Hosting Matters"
+    subtitle="The foundation of your online success starts with reliable hosting"
+    content="<p>Your website is often the first impression customers have of your business. Slow loading times, security vulnerabilities, or downtime can cost you customers and damage your reputation.</p><p>Our professional hosting solutions provide the reliable foundation your business needs to succeed online, with enterprise-grade infrastructure at affordable prices.</p>"
+    items={[
+      {
+        title: 'Scalable Infrastructure',
+        description:
+          'Hosting plans that grow with your business, allowing easy upgrades as your traffic and storage needs increase.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Easy Management',
+        description:
+          'User-friendly control panels make managing your website, email accounts, and databases simple and intuitive.',
+        icon: 'tabler:dashboard',
+      },
+      {
+        title: 'Global Performance',
+        description: 'Content delivery networks ensure fast loading times for visitors anywhere in the world.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'WordPress Optimized',
+        description:
+          'Specialized tools and optimization for WordPress websites, including easy installation and management.',
+        icon: 'tabler:brand-wordpress',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80',
+      alt: 'Global network infrastructure showing connected servers',
+    }}
+    isReversed
+  />
+
+  <!-- Pricing Section ******************* -->
+  <PricingCards
+    id="pricing"
+    title="Flexible Hosting Plans for Every Need"
+    subtitle="Choose the perfect hosting solution for your website and budget"
+    tagline="HOSTING PLANS"
+    packages={[
+      {
+        title: 'Basic',
+        price: '$9.99/mo',
+        description: 'Perfect for personal websites and small projects',
+        features: [
+          '3 GB Storage',
+          '500 GB Bandwidth',
+          '5 Email Accounts',
+          '1 Domain Hosted',
+          'Free SSL Certificate',
+          'Daily Backups',
+          'Helpdesk Support',
+        ],
+        callToAction: {
+          text: 'Start Basic',
+          href: '/contact',
+        },
+      },
+      {
+        title: 'Business',
+        price: '$24.99/mo',
+        description: 'Ideal for growing businesses and professional websites',
+        features: [
+          '20 GB Storage',
+          'Unlimited Bandwidth',
+          '15 Email Accounts',
+          '5 Domains Hosted',
+          'Free SSL Certificate',
+          'Daily Backups',
+          'Premium Support',
+          'WordPress Toolkit',
+        ],
+        isPopular: true,
+        callToAction: {
+          text: 'Choose Business',
+          href: '/contact',
+        },
+      },
+      {
+        title: 'Premium',
+        price: '$49.99/mo',
+        description: 'Advanced hosting for high-traffic websites and applications',
+        features: [
+          '50 GB Storage',
+          'Unlimited Bandwidth',
+          'Unlimited Email Accounts',
+          '10 Domains Hosted',
+          'Free SSL Certificate',
+          'Daily Backups',
+          'Priority Support',
+          'Advanced cPanel Access',
+          'Performance Optimization',
+        ],
+        callToAction: {
+          text: 'Go Premium',
+          href: '/contact',
+        },
+      },
+    ]}
+    note="Need custom hosting solutions? Contact us for enterprise-grade options tailored to your specific requirements."
+  />
+
+  <!-- Technical Features Section ********* -->
+  <Features
+    id="technical"
+    title="Advanced Hosting Technology"
+    subtitle="Enterprise-grade infrastructure and tools to power your online presence"
+    tagline="TECHNICAL FEATURES"
+    columns={2}
+    items={[
+      {
+        title: 'Modern Data Centers',
+        description:
+          'State-of-the-art facilities with redundant power, cooling, and network connections ensure maximum reliability.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'SSD Storage',
+        description:
+          'High-performance solid-state drives deliver faster website loading times and improved overall performance.',
+        icon: 'tabler:device-floppy',
+      },
+      {
+        title: 'Content Delivery Network',
+        description:
+          'Global CDN ensures your website loads quickly for visitors worldwide, improving user experience and SEO.',
+        icon: 'tabler:network',
+      },
+      {
+        title: 'Advanced Control Panel',
+        description:
+          'Intuitive cPanel interface makes managing your hosting, domains, email, and databases simple and efficient.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'WordPress Toolkit',
+        description:
+          'Specialized tools for WordPress management, including easy installation, updates, and security optimization.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Email Hosting',
+        description: 'Professional email accounts with your domain name, including spam protection and webmail access.',
+        icon: 'tabler:mail',
+      },
+    ]}
+  />
+
+  <!-- FAQ Section ******************* -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Get answers to common questions about our web hosting services"
+    tagline="FAQ"
+    columns={2}
+    items={[
+      {
+        title: 'What is web hosting?',
+        description:
+          'Web hosting is a service that allows your website to be accessible on the internet. We provide the servers, storage, and infrastructure needed for your website to be viewed by visitors worldwide.',
+      },
+      {
+        title: 'What types of hosting do you offer?',
+        description:
+          'We offer shared hosting plans optimized for performance, security, and reliability. Our hosting solutions include everything from basic personal websites to advanced business applications.',
+      },
+      {
+        title: 'How do I choose the right hosting plan?',
+        description:
+          "Consider your website's traffic, storage needs, number of email accounts required, and technical requirements. Our team can help you select the perfect plan for your specific needs.",
+      },
+      {
+        title: 'What is an SSL certificate?',
+        description:
+          'An SSL certificate encrypts data transmitted between your website and visitors, protecting sensitive information. It also improves SEO rankings and shows visitors your site is secure.',
+      },
+      {
+        title: 'What is cPanel?',
+        description:
+          'cPanel is a user-friendly web hosting control panel that lets you manage your website, create email accounts, install applications, and perform administrative tasks through an intuitive interface.',
+      },
+      {
+        title: 'What is the WordPress Toolkit?',
+        description:
+          'WordPress Toolkit is a comprehensive management interface for WordPress websites, allowing easy installation, updates, security management, and performance optimization.',
+      },
+    ]}
+  />
+
+  <!-- CTA Section ******************* -->
+  <CallToAction
+    title="Ready for Reliable Hosting?"
+    subtitle="Get your website online with professional hosting that keeps your business running smoothly 24/7."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Choose Your Plan',
+        href: '#pricing',
+        icon: 'tabler:server',
+      },
+      {
+        text: 'Contact for Custom Solution',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-90"></div>
+    </Fragment>
+  </CallToAction>
+</Layout>
