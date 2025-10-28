@@ -15,8 +15,8 @@ metadata:
   Our team specializes in creating dynamic, user-friendly websites that drive growth and improve online presence.
   Contact us today to transform your digital landscape."
   robots:
-    index: true
-    follow: true
+    index: false
+    follow: false
   openGraph:
     site_name: RVB Data Sciences
     images:
@@ -38,13 +38,13 @@ apps:
       isEnabled: true
       permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       robots:
-        index: true
+        index: false
 
     list:
       isEnabled: true
       pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
       robots:
-        index: true
+        index: false
 
     category:
       isEnabled: true
