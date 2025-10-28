@@ -1,6 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import PricingCards from '~/components/widgets/PricingCards.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -10,13 +10,13 @@ import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
 const metadata = {
   title: 'Web Development Services | RVB Corp - Burlington Web Agency',
   description:
-    'Professional web development services in Burlington. Custom websites, e-commerce solutions, and digital experiences that drive growth for your business.',
+    'Professional web development services from our Burlington-based agency. Custom websites, e-commerce solutions, and digital experiences that drive growth for your business.',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Section -->
-  <Hero
+  <Hero2
     tagline="Web Development"
     actions={[
       {
@@ -39,10 +39,9 @@ const metadata = {
     </Fragment>
     <Fragment slot="subtitle">
       We are experts in crafting custom web solutions that drive results. From stunning designs to seamless
-      functionality, we build websites that engage users, boost conversions, and grow your business in Burlington and
-      beyond.
+      functionality, we build websites that engage users, boost conversions, and grow your business.
     </Fragment>
-  </Hero>
+  </Hero2>
 
   <!-- Service Section -->
   <GradientFeatures
@@ -236,17 +235,17 @@ const metadata = {
 
   <!-- Final CTA -->
   <CallToAction
-    tagline="Ready to Start?"
-    title="Let's Build Something <span class='text-primary'>Amazing</span> Together"
-    subtitle="Transform your digital presence with our expert web development services. From concept to launch, we'll bring your vision to life."
+    tagline="Ready to Grow Your Business?"
+    title="Get Your Custom <span class='text-white'>Website</span> Built Today"
+    subtitle="Join businesses who trust our Burlington-based team with their web development. Let's create a website that drives real results for your business."
     actions={[
       {
-        text: 'Start Your Project',
-        href: '/contact',
+        text: 'Get a Free Quote',
+        href: '/contact#form',
         icon: 'tabler:arrow-right',
       },
       {
-        text: 'View Our Portfolio',
+        text: 'See Our Work',
         href: '/portfolio',
         variant: 'secondary',
       },

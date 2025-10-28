@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -10,42 +10,44 @@ import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
-  title: 'Search Engine Optimization Services | Dominate Search Rankings',
+  title: 'SEO Services | Search Engine Optimization | RVB Corp - Burlington',
   description:
-    'Transform your online visibility with our expert SEO services. Drive organic traffic, increase conversions, and outrank competitors with proven strategies.',
-  keywords: 'SEO services, search engine optimization, organic traffic, keyword research, local SEO, technical SEO',
+    'Professional SEO services from our Burlington-based agency. Improve your search rankings, drive organic traffic, and grow your business with our proven SEO strategies.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Section ******************* -->
-  <Hero
-    tagline="SEO THAT DELIVERS"
-    title="Dominate Search Rankings & <em>Drive Organic Growth</em>"
-    subtitle="Transform your online visibility with data-driven SEO strategies that deliver measurable results. Get found by customers actively searching for your services."
+  <!-- Hero Section -->
+  <Hero2
+    tagline="Search Engine Optimization"
     actions={[
       {
         variant: 'primary',
         text: 'Get Free SEO Audit',
-        href: '#audit',
+        href: '/contact#form',
         icon: 'tabler:search',
       },
       {
-        text: 'View Case Studies',
-        href: '#results',
+        variant: 'secondary',
+        text: 'View Our Process',
+        href: '#process',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80',
-      alt: 'SEO Analytics Dashboard showing growth metrics and search rankings',
-    }}
   >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+    <Fragment slot="title">
+      Dominate Search Rankings with <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+        >Expert SEO</span
+      >
     </Fragment>
-  </Hero>
+    <Fragment slot="subtitle">
+      Get found by customers actively searching for your services. Our Burlington-based team uses data-driven SEO strategies to improve your search rankings, drive organic traffic, and deliver measurable results for businesses everywhere.
+    </Fragment>
+  </Hero2>
 
-  <!-- Core SEO Services ************** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Core SEO Services -->
   <GradientFeatures
     id="services"
     title="Complete SEO Solutions"
@@ -91,7 +93,10 @@ const metadata = {
     ]}
   />
 
-  <!-- SEO Process Section ************ -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- SEO Process Section -->
   <Features3
     id="process"
     title="Our Proven SEO Process"
@@ -127,7 +132,10 @@ const metadata = {
     ]}
   />
 
-  <!-- Results & Benefits Section **** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Results & Benefits Section -->
   <Content
     id="results"
     isReversed
@@ -167,7 +175,10 @@ const metadata = {
     }}
   />
 
-  <!-- Why Choose Us Section ********* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Why Choose Us Section -->
   <Features
     id="why-us"
     title="Why Businesses Choose Our SEO Services"
@@ -212,7 +223,10 @@ const metadata = {
     ]}
   />
 
-  <!-- FAQ Section ******************* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- FAQ Section -->
   <FAQs
     title="Frequently Asked Questions"
     subtitle="Get answers to common questions about our SEO services"
@@ -252,26 +266,26 @@ const metadata = {
     ]}
   />
 
-  <!-- CTA Section ******************* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- CTA Section -->
   <CallToAction
     id="audit"
-    title="Ready to Dominate Search Results?"
-    subtitle="Get a free, comprehensive SEO audit and discover exactly what's holding your website back from ranking higher."
+    tagline="Ready to Grow?"
+    title="Get Your Free <span class='text-white'>SEO Audit</span> Today"
+    subtitle="Discover exactly what's holding your website back from ranking higher. Get a comprehensive SEO audit and personalized strategy to dominate search results and grow your business."
     actions={[
       {
-        variant: 'primary',
-        text: 'Get Your Free SEO Audit',
-        href: '/contact',
+        text: 'Get Free SEO Audit',
+        href: '/contact#form',
         icon: 'tabler:search',
       },
       {
-        text: 'Schedule Strategy Call',
+        text: 'Schedule a Call',
         href: '/contact',
+        variant: 'secondary',
       },
     ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-90"></div>
-    </Fragment>
-  </CallToAction>
+  />
 </Layout>

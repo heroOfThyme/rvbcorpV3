@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -10,20 +10,16 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import PricingCards from '~/components/widgets/PricingCards.astro';
 
 const metadata = {
-  title: 'Web Hosting Solutions | Fast, Secure & Reliable Hosting Services',
+  title: 'Web Hosting Solutions | RVB Corp - Burlington',
   description:
-    'Professional web hosting solutions with 99.9% uptime guarantee. Fast, secure, and scalable hosting plans with 24/7 support, SSL certificates, and automated backups.',
-  keywords:
-    'web hosting, website hosting, secure hosting, reliable hosting, SSL certificate, website uptime, hosting support',
+    'Professional web hosting solutions from our Burlington-based agency. 99.9% uptime guarantee, fast performance, and 24/7 support. Secure and scalable hosting plans for businesses.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Section ******************* -->
-  <Hero
-    tagline="RELIABLE HOSTING"
-    title="Fast, Secure & <em>Always Online</em> Hosting"
-    subtitle="Keep your website running smoothly with our professional hosting solutions. Benefit from 99.9% uptime, lightning-fast performance, and round-the-clock support that keeps your business online."
+  <!-- Hero Section -->
+  <Hero2
+    tagline="Web Hosting"
     actions={[
       {
         variant: 'primary',
@@ -32,21 +28,26 @@ const metadata = {
         icon: 'tabler:server',
       },
       {
-        text: 'Get Started Now',
-        href: '/contact',
+        variant: 'secondary',
+        text: 'Get Started',
+        href: '/contact#form',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2134&q=80',
-      alt: 'Modern web hosting infrastructure with servers and cloud connectivity',
-    }}
   >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+    <Fragment slot="title">
+      Fast, Secure & <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+        >Always Online</span
+      > Hosting
     </Fragment>
-  </Hero>
+    <Fragment slot="subtitle">
+      Keep your website running smoothly with professional hosting solutions from our Burlington-based team. Benefit from 99.9% uptime, lightning-fast performance, and round-the-clock support that keeps your business online.
+    </Fragment>
+  </Hero2>
 
-  <!-- Core Hosting Features ************** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Core Hosting Features -->
   <GradientFeatures
     id="features"
     title="Enterprise-Grade Hosting Features"
@@ -92,7 +93,10 @@ const metadata = {
     ]}
   />
 
-  <!-- Hosting Benefits Section **** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Hosting Benefits Section -->
   <Content
     id="benefits"
     title="Why Professional Hosting Matters"
@@ -130,7 +134,10 @@ const metadata = {
     isReversed
   />
 
-  <!-- Pricing Section ******************* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Pricing Section -->
   <PricingCards
     id="pricing"
     title="Flexible Hosting Plans for Every Need"
@@ -199,7 +206,10 @@ const metadata = {
     note="Need custom hosting solutions? Contact us for enterprise-grade options tailored to your specific requirements."
   />
 
-  <!-- Technical Features Section ********* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Technical Features Section -->
   <Features
     id="technical"
     title="Advanced Hosting Technology"
@@ -245,7 +255,10 @@ const metadata = {
     ]}
   />
 
-  <!-- FAQ Section ******************* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- FAQ Section -->
   <FAQs
     title="Frequently Asked Questions"
     subtitle="Get answers to common questions about our web hosting services"
@@ -285,25 +298,25 @@ const metadata = {
     ]}
   />
 
-  <!-- CTA Section ******************* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- CTA Section -->
   <CallToAction
-    title="Ready for Reliable Hosting?"
-    subtitle="Get your website online with professional hosting that keeps your business running smoothly 24/7."
+    tagline="Ready to Get Started?"
+    title="Launch Your <span class='text-white'>Website Hosting</span> Today"
+    subtitle="Get your website online with professional hosting that keeps your business running smoothly 24/7. Choose a plan or contact us for custom solutions."
     actions={[
       {
-        variant: 'primary',
         text: 'Choose Your Plan',
         href: '#pricing',
         icon: 'tabler:server',
       },
       {
-        text: 'Contact for Custom Solution',
+        text: 'Contact Us',
         href: '/contact',
+        variant: 'secondary',
       },
     ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-90"></div>
-    </Fragment>
-  </CallToAction>
+  />
 </Layout>

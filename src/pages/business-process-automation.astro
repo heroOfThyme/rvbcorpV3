@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -10,43 +10,44 @@ import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
-  title: 'Business Process Automation Services | Streamline Operations & Boost Efficiency',
+  title: 'Business Process Automation Services | RVB Corp - Burlington',
   description:
-    'Transform your business with our automation services. Eliminate manual tasks, reduce errors, and scale efficiently with custom automation solutions tailored to your needs.',
-  keywords:
-    'business process automation, workflow automation, task automation, API development, business efficiency, process optimization',
+    'Transform your business with automation services from our Burlington-based agency. Eliminate manual tasks, reduce errors, and scale efficiently with custom automation solutions.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Section ******************* -->
-  <Hero
-    tagline="AUTOMATION SOLUTIONS"
-    title="Transform Your Business with <em>Smart Automation</em>"
-    subtitle="Step into the new era of efficiency. Eliminate manual tasks, reduce errors, and scale your operations with intelligent automation solutions tailored to your business needs."
+  <!-- Hero Section -->
+  <Hero2
+    tagline="Business Process Automation"
     actions={[
       {
         variant: 'primary',
         text: 'Get Free Assessment',
-        href: '#consultation',
+        href: '/contact#form',
         icon: 'tabler:robot',
       },
       {
-        text: 'View Case Studies',
-        href: '#results',
+        variant: 'secondary',
+        text: 'View Our Process',
+        href: '#process',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1518186233392-c232efbf2373?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80',
-      alt: 'Business Process Automation Dashboard showing workflow efficiency and analytics',
-    }}
   >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+    <Fragment slot="title">
+      Transform Your Business with <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+        >Smart Automation</span
+      >
     </Fragment>
-  </Hero>
+    <Fragment slot="subtitle">
+      Eliminate manual tasks, reduce errors, and scale your operations with intelligent automation solutions. Our Burlington-based team helps businesses streamline processes and boost efficiency with custom automation tailored to your needs.
+    </Fragment>
+  </Hero2>
 
-  <!-- Core Automation Services ************** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Core Automation Services -->
   <GradientFeatures
     id="services"
     title="Complete Automation Solutions"
@@ -92,7 +93,10 @@ const metadata = {
     ]}
   />
 
-  <!-- Automation Process Section ************ -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Automation Process Section -->
   <Features3
     id="process"
     title="Our Proven Automation Process"
@@ -129,7 +133,10 @@ const metadata = {
     ]}
   />
 
-  <!-- Results & Benefits Section **** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Results & Benefits Section -->
   <Content
     id="results"
     isReversed
@@ -169,7 +176,10 @@ const metadata = {
     }}
   />
 
-  <!-- Why Choose Us Section ********* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Why Choose Us Section -->
   <Features
     id="why-us"
     title="Why Businesses Choose Our Automation Services"
@@ -214,7 +224,10 @@ const metadata = {
     ]}
   />
 
-  <!-- FAQ Section ******************* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- FAQ Section -->
   <FAQs
     title="Frequently Asked Questions"
     subtitle="Get answers to common questions about business process automation"
@@ -254,26 +267,26 @@ const metadata = {
     ]}
   />
 
-  <!-- CTA Section ******************* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- CTA Section -->
   <CallToAction
     id="consultation"
-    title="Ready to Automate Your Business?"
-    subtitle="Get a free consultation and discover exactly how automation can transform your operations and boost your bottom line."
+    tagline="Ready to Transform?"
+    title="Automate Your <span class='text-white'>Business Processes</span> Today"
+    subtitle="Get a free consultation and discover exactly how automation can transform your operations, eliminate manual tasks, and boost your bottom line."
     actions={[
       {
-        variant: 'primary',
         text: 'Get Free Assessment',
-        href: '/contact',
-        icon: 'tabler:arrow-right',
+        href: '/contact#form',
+        icon: 'tabler:robot',
       },
       {
-        text: 'Schedule Strategy Call',
+        text: 'Schedule a Call',
         href: '/contact',
+        variant: 'secondary',
       },
     ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-90"></div>
-    </Fragment>
-  </CallToAction>
+  />
 </Layout>

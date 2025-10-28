@@ -14,11 +14,10 @@ const {
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 
-// Beautiful gradient combinations
+// Simple alternating pattern - Purple, Pink, Purple, Pink, etc.
 const cardGradients = [
-  'from-primary via-primary/90 to-secondary', // Purple gradient
-  'from-accent via-accent/90 to-primary', // Pink to purple
-  'from-secondary via-secondary/90 to-primary', // Blue-purple gradient
+  'from-primary via-primary/90 to-secondary',    // Purple
+  'from-accent via-accent/90 to-primary',        // Pink
 ];
 ---
 

@@ -1,11 +1,9 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import AboutSection from '~/components/widgets/AboutSection.astro';
-import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import Note from '~/components/widgets/Note.astro';
 import { Icon } from 'astro-icon/components';
 
@@ -33,6 +31,7 @@ const metadata = {
         variant: 'secondary',
       },
     ]}
+    image={{ src: '~/assets/images/about-us-main.webp', alt: 'RVB Team Coding Away' }}
   >
     <Fragment slot="title">
       Discover Our <span class="text-primary">Business</span>
@@ -41,19 +40,6 @@ const metadata = {
     <Fragment slot="subtitle">
       Welcome to RVB Data Sciences Corp, where our passion for software development fuels our commitment to helping
       businesses utilize the amazing technology the world has to offer.
-    </Fragment>
-
-    <Fragment slot="image">
-      <div class="relative mx-auto max-w-5xl">
-        <img
-          class="mx-auto h-auto w-full rounded-2xl shadow-2xl"
-          src="/_astro/about-us-main.B5NO6ZdH.webp"
-          alt="RVB Team Coding Away"
-          loading="eager"
-          width="1024"
-          height="576"
-        />
-      </div>
     </Fragment>
   </Hero>
 
@@ -96,54 +82,6 @@ const metadata = {
   <!-- Section Divider -->
   <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
 
-  <!-- Why Choose Us Section -->
-  <GradientFeatures
-    tagline="Why Choose Us"
-    title="Going <span class='text-primary'>Above & Beyond</span>"
-    subtitle="Most companies don't go to the lengths we do to ensure your satisfaction. We are committed to delivering solutions that exceed expectations."
-    items={[
-      {
-        title: 'Customized Solutions',
-        description:
-          'We offer customized solutions tailored to your unique needs, ensuring that you get the results you want. We work closely with you to understand your goals and challenges.',
-        icon: 'tabler:puzzle',
-      },
-      {
-        title: 'Expert Team',
-        description:
-          'Our team of experts has years of experience in software development, web design, and digital marketing, ensuring that you get the best solutions for your business.',
-        icon: 'tabler:users-group',
-      },
-      {
-        title: 'Transparency & Communication',
-        description:
-          'We believe in maintaining open and honest communication with our clients, keeping you informed throughout the process with regular updates.',
-        icon: 'tabler:message-circle',
-      },
-      {
-        title: 'Local Burlington Focus',
-        description:
-          'As a Burlington-based agency, we understand the local market and are committed to helping businesses in our community thrive and grow.',
-        icon: 'tabler:map-pin',
-      },
-      {
-        title: 'Cutting-Edge Technology',
-        description:
-          'We stay up-to-date on the latest trends and technologies to deliver cutting-edge solutions that drive real results for your business.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Ongoing Support',
-        description:
-          "Our relationship doesn't end at launch. We provide ongoing support, training, and maintenance to ensure your continued success.",
-        icon: 'tabler:lifebuoy',
-      },
-    ]}
-  />
-
-  <!-- Section Divider -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-
   <!-- Technology Stack Section -->
   <section class="py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -160,33 +98,27 @@ const metadata = {
         </p>
       </div>
 
-      <!-- Technology Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-        {
-          [
-            { name: 'React', icon: 'tabler:brand-react' },
-            { name: 'Astro', icon: 'tabler:rocket' },
-            { name: 'TypeScript', icon: 'tabler:brand-typescript' },
-            { name: 'Tailwind CSS', icon: 'tabler:palette' },
-            { name: 'Node.js', icon: 'tabler:brand-nodejs' },
-            { name: 'Google Cloud', icon: 'tabler:brand-google' },
-          ].map((tech, index) => {
-            const cardGradients = [
-              'from-primary via-primary/90 to-secondary',
-              'from-accent via-accent/90 to-primary',
-              'from-secondary via-secondary/90 to-primary',
-            ];
-
-            return (
-              <div
-                class={`bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-2xl p-4 hover:scale-[1.02] transition-all duration-300 text-center group`}
-              >
-                <Icon name={tech.icon} class="w-8 h-8 text-white mx-auto mb-3" />
-                <span class="text-white/90 text-sm font-medium">{tech.name}</span>
-              </div>
-            );
-          })
-        }
+      <!-- Technology List -->
+      <div class="max-w-3xl mx-auto">
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 justify-items-center">
+          {
+            [
+              { name: 'React', icon: 'tabler:brand-react', color: '#61DAFB' },
+              { name: 'Astro', icon: 'tabler:rocket', color: '#FF5D01' },
+              { name: 'TypeScript', icon: 'tabler:brand-typescript', color: '#3178C6' },
+              { name: 'Tailwind CSS', icon: 'tabler:palette', color: '#06B6D4' },
+              { name: 'Node.js', icon: 'tabler:brand-nodejs', color: '#339933' },
+              { name: 'Google Cloud', icon: 'tabler:brand-google', color: '#4285F4' },
+            ].map((tech) => {
+              return (
+                <li class="flex items-center gap-4 text-white">
+                  <Icon name={tech.icon} class="w-8 h-8 flex-shrink-0" style={`color: ${tech.color}`} />
+                  <span class="text-lg font-medium">{tech.name}</span>
+                </li>
+              );
+            })
+          }
+        </ul>
       </div>
     </div>
   </section>
@@ -218,21 +150,6 @@ const metadata = {
         name: 'Slavko Vidakovic',
         job: 'S&V Memorials - Owner',
       },
-    ]}
-  />
-
-  <!-- Section Divider -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-
-  <!-- Stats Section -->
-  <Stats
-    title="Our <span class='text-primary'>Impact</span>"
-    subtitle="The numbers reflect our commitment to excellence and the trust our clients place in us"
-    stats={[
-      { title: 'Local Businesses Served', amount: '15+', icon: 'tabler:building-store' },
-      { title: 'Years of Experience', amount: '5+', icon: 'tabler:calendar' },
-      { title: 'Client Satisfaction', amount: '100%', icon: 'tabler:heart' },
-      { title: 'Projects Completed', amount: '25+', icon: 'tabler:check' },
     ]}
   />
 

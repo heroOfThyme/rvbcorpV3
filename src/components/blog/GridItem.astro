@@ -9,63 +9,80 @@ import { getPermalink } from '~/utils/permalinks';
 
 export interface Props {
   post: Post;
+  index?: number;
 }
 
-const { post } = Astro.props;
+const { post, index = 0 } = Astro.props;
 const image = await findImage(post.image);
 
 const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
+
+// Same gradient pattern as service cards
+const cardGradients = [
+  'from-primary via-primary/90 to-secondary',
+  'from-accent via-accent/90 to-primary',
+  'from-secondary via-secondary/90 to-primary',
+  'from-accent via-accent/90 to-primary',
+  'from-secondary via-secondary/90 to-primary',
+  'from-primary via-primary/90 to-secondary',
+];
 ---
 
 <article
-  class="mb-6 transition intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+  class="mb-6 transition-all duration-300 group intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
 >
-  <div class="relative md:h-64 bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-6">
-    {
-      image &&
-        (link ? (
-          <a href={link}>
+  {
+    link ? (
+      <a href={link} class="block">
+        <div class={`relative min-h-[420px] bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-3xl p-8 flex flex-col hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden h-full`}>
+          {image && (
+            <div class="mb-6 rounded-2xl overflow-hidden flex-shrink-0">
+              <Image
+                src={image}
+                class="w-full h-48 object-cover"
+                widths={[400, 900]}
+                width={400}
+                sizes="(max-width: 900px) 400px, 900px"
+                alt={post.title}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          )}
+
+          <h3 class="text-2xl font-bold text-white mb-4 leading-tight flex-shrink-0">
+            {post.title}
+          </h3>
+
+          <p class="text-white/90 leading-relaxed flex-grow">{post.excerpt}</p>
+
+          {/* Subtle hover overlay */}
+          <div class="absolute inset-0 bg-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+        </div>
+      </a>
+    ) : (
+      <div class={`relative min-h-[420px] bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-3xl p-8 flex flex-col shadow-xl overflow-hidden h-full`}>
+        {image && (
+          <div class="mb-6 rounded-2xl overflow-hidden flex-shrink-0">
             <Image
               src={image}
-              class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+              class="w-full h-48 object-cover"
               widths={[400, 900]}
               width={400}
               sizes="(max-width: 900px) 400px, 900px"
               alt={post.title}
-              aspectRatio="16:9"
-              layout="cover"
               loading="lazy"
               decoding="async"
             />
-          </a>
-        ) : (
-          <Image
-            src={image}
-            class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
-            widths={[400, 900]}
-            width={400}
-            sizes="(max-width: 900px) 400px, 900px"
-            alt={post.title}
-            aspectRatio="16:9"
-            layout="cover"
-            loading="lazy"
-            decoding="async"
-          />
-        ))
-    }
-  </div>
+          </div>
+        )}
 
-  <h3 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading dark:text-slate-300">
-    {
-      link ? (
-        <a class="inline-block hover:text-primary dark:hover:text-blue-700 transition ease-in duration-200" href={link}>
+        <h3 class="text-2xl font-bold text-white mb-4 leading-tight flex-shrink-0">
           {post.title}
-        </a>
-      ) : (
-        post.title
-      )
-    }
-  </h3>
+        </h3>
 
-  <p class="text-muted dark:text-slate-400 text-lg">{post.excerpt}</p>
+        <p class="text-white/90 leading-relaxed flex-grow">{post.excerpt}</p>
+      </div>
+    )
+  }
 </article>

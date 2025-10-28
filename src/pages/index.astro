@@ -2,16 +2,14 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import ProjectShowcase from '~/components/widgets/ProjectShowcase.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import ServiceCards from '~/components/widgets/ServiceCards.astro';
-import AboutSection from '~/components/widgets/AboutSection.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'RVBCorp - Burlington Web Agency | Web Development, SEO & Digital Solutions',
   ignoreTitleTemplate: true,
 };
 ---
@@ -20,15 +18,15 @@ const metadata = {
   <!-- Hero Widget ******************* -->
   <Hero
     tagline="Burlington's Web Agency"
+    hasGradient={true}
+    showScrollIndicator={true}
     actions={[
       {
-        variant: 'primary',
         icon: 'tabler:arrow-right',
         text: 'Lets Get Started',
         href: '/contact#form',
       },
       {
-        variant: 'secondary',
         icon: 'tabler:briefcase',
         text: 'See Our Work',
         href: '/portfolio',
@@ -36,16 +34,13 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Tailored <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Web Solutions</span>
+      Tailored <span class="text-white">Web Solutions</span>
     </Fragment>
     <Fragment slot="subtitle">
       Burlington's local web agency, our specialty is the web, including web development, automation, Google services,
       SEO, and more. Partner with us to transform your digital landscape and stay ahead in the competitive market.</Fragment
     >
   </Hero>
-
-  <!-- Note Widget ******************* -->
-  <Note />
 
   <!-- Services Section *************** -->
   <ServiceCards
@@ -131,9 +126,18 @@ const metadata = {
         description:
           "Professional concrete contractor website featuring service showcases, testimonials, and lead generation forms for Windsor's trusted concrete specialists.",
         image: { src: '~/assets/images/test-img-2.jpg', alt: 'hello' }, // You'll need to add screenshots
-        technologies: ['Astro', 'Tailwind CSS', 'Contact Forms', 'SEO'],
         liveUrl: 'https://shieldscement.ca',
         caseStudyUrl: '/case-studies/shields-cement',
+        category: 'Construction',
+        completedDate: '2024',
+      },
+      {
+        title: 'Legacy Exteriors',
+        description:
+          'Professional excavation and exterior services website showcasing family-owned business values with customer testimonials and service galleries.',
+        image: { src: '~/assets/images/test-img-2.jpg', alt: 'hello' }, // You'll need to add screenshots
+        liveUrl: 'https://legacyexteriorsinc.com',
+        caseStudyUrl: '/case-studies/legacy-exteriors',
         category: 'Construction',
         completedDate: '2024',
       },
@@ -142,50 +146,10 @@ const metadata = {
         description:
           'Compassionate cleaning service website designed specifically for seniors in Burlington, featuring accessible design and clear service information.',
         image: { src: '~/assets/images/test-img-2.jpg', alt: 'hello' }, // You'll need to add screenshots
-        technologies: ['Astro', 'Accessible Design', 'Local SEO', 'Contact Forms'],
         liveUrl: 'https://seniorshelper.ca',
         caseStudyUrl: '/case-studies/seniors-helper',
         category: 'Healthcare',
         completedDate: '2024',
-      },
-      {
-        title: 'Legacy Exteriors',
-        description:
-          'Professional excavation and exterior services website showcasing family-owned business values with customer testimonials and service galleries.',
-        image: { src: '~/assets/images/test-img-2.jpg', alt: 'hello' }, // You'll need to add screenshots
-        technologies: ['Astro', 'Reviews Integration', 'Service Showcase', 'Local SEO'],
-        liveUrl: 'https://legacyexteriorsinc.com',
-        caseStudyUrl: '/case-studies/legacy-exteriors',
-        category: 'Construction',
-        completedDate: '2024',
-      },
-    ]}
-  />
-
-  <!-- About Section -->
-  <AboutSection
-    tagline="About Us"
-    title="Building Digital Solutions in <span class='text-primary'>Burlington</span>"
-    subtitle="Passionate developers helping local businesses harness the power of modern technology"
-    image=""
-    values={[
-      {
-        title: 'Integrity',
-        description:
-          'We maintain transparency and honesty in all our dealings, going through every contract to ensure you understand everything.',
-        icon: 'tabler:shield-check',
-      },
-      {
-        title: 'Excellence',
-        description:
-          'Committed to delivering high-quality solutions that exceed expectations, ensuring complete satisfaction.',
-        icon: 'tabler:award',
-      },
-      {
-        title: 'Collaboration',
-        description:
-          'Working closely with clients to understand unique needs, fostering an environment that drives real results.',
-        icon: 'tabler:users',
       },
     ]}
   />
@@ -194,11 +158,15 @@ const metadata = {
   <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
 
   <!-- Latest Post Section -->
-  <BlogLatestPosts title="Find out more content in our Blog" />
+  <BlogLatestPosts
+    tagline="Blog"
+    title="Find out more content in our Blog"
+    subtitle="Insights, tips, and updates from our team to help you stay ahead in the digital world"
+  />
 
   <!-- Section Divider -->
   <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-  Í
+
   <!-- Testimonials Section -->
   <Testimonials
     tagline="Client Success"

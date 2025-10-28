@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -10,43 +10,44 @@ import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
-  title: 'Google Business Management Services | Maximize Your Google Presence',
+  title: 'Google Business Management Services | RVB Corp - Burlington',
   description:
-    'Unlock the full potential of Google for your business. Expert management of Google My Business, Ads, Analytics, and more. Drive traffic, gain insights, and dominate local search.',
-  keywords:
-    'Google Business Management, Google My Business, Google Ads, Google Analytics, local SEO, Google Workspace, digital marketing',
+    'Unlock the full potential of Google for your business with our Burlington-based agency. Expert management of Google My Business, Ads, Analytics, and more. Drive traffic and dominate local search.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Section ******************* -->
-  <Hero
-    tagline="GOOGLE EXPERTISE"
-    title="Dominate Google & <em>Maximize Your Reach</em>"
-    subtitle="Unlock the full potential of Google's ecosystem for your business. From local search dominance to data-driven advertising, we help you leverage Google's billions of daily searches to drive growth."
+  <!-- Hero Section -->
+  <Hero2
+    tagline="Google Business Management"
     actions={[
       {
         variant: 'primary',
         text: 'Get Google Audit',
-        href: '#audit',
+        href: '/contact#form',
         icon: 'tabler:brand-google',
       },
       {
-        text: 'View Success Stories',
-        href: '#results',
+        variant: 'secondary',
+        text: 'View Our Process',
+        href: '#process',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2127&q=80',
-      alt: 'Google Business Management dashboard showing analytics and performance metrics',
-    }}
   >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+    <Fragment slot="title">
+      Dominate Google & <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
+        >Maximize Your Reach</span
+      >
     </Fragment>
-  </Hero>
+    <Fragment slot="subtitle">
+      Unlock the full potential of Google's ecosystem for your business. Our Burlington-based team helps you leverage Google's billions of daily searches through expert management of My Business, Ads, Analytics, and more.
+    </Fragment>
+  </Hero2>
 
-  <!-- Core Google Services ************** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Core Google Services -->
   <GradientFeatures
     id="services"
     title="Complete Google Ecosystem Management"
@@ -92,7 +93,10 @@ const metadata = {
     ]}
   />
 
-  <!-- Google Management Process ************ -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Google Management Process -->
   <Features3
     id="process"
     title="Our Google Management Methodology"
@@ -130,7 +134,10 @@ const metadata = {
     ]}
   />
 
-  <!-- Results & Benefits Section **** -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Results & Benefits Section -->
   <Content
     id="results"
     isReversed
@@ -170,7 +177,10 @@ const metadata = {
     }}
   />
 
-  <!-- Why Choose Us Section ********* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- Why Choose Us Section -->
   <Features
     id="why-us"
     title="Why Businesses Trust Us with Their Google Presence"
@@ -217,7 +227,10 @@ const metadata = {
     ]}
   />
 
-  <!-- FAQ Section ******************* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- FAQ Section -->
   <FAQs
     title="Frequently Asked Questions"
     subtitle="Get answers to common questions about Google Business Management"
@@ -257,26 +270,26 @@ const metadata = {
     ]}
   />
 
-  <!-- CTA Section ******************* -->
+  <!-- Section Divider -->
+  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+
+  <!-- CTA Section -->
   <CallToAction
     id="audit"
-    title="Ready to Dominate Google?"
-    subtitle="Get a comprehensive Google audit and discover exactly what's needed to maximize your online presence and drive more customers to your business."
+    tagline="Ready to Grow?"
+    title="Maximize Your <span class='text-white'>Google Presence</span> Today"
+    subtitle="Get a comprehensive Google audit and discover exactly what's needed to maximize your online presence, dominate local search, and drive more customers to your business."
     actions={[
       {
-        variant: 'primary',
         text: 'Get Free Google Audit',
-        href: '/contact',
+        href: '/contact#form',
         icon: 'tabler:brand-google',
       },
       {
-        text: 'Schedule Consultation',
+        text: 'Schedule a Call',
         href: '/contact',
+        variant: 'secondary',
       },
     ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-90"></div>
-    </Fragment>
-  </CallToAction>
+  />
 </Layout>

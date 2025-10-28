@@ -15,17 +15,22 @@ const {
 
   id,
   bg = await Astro.slots.render('bg'),
+  hasGradient = false,
+  showScrollIndicator = false,
 } = Astro.props;
 ---
 
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden" {...id ? { id } : {}}>
-  <!-- Background -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden -mt-[100px] pt-[100px]" {...id ? { id } : {}}>
+  <!-- Gradient Background (Optional) -->
+  {hasGradient && (
+    <div class="absolute inset-0 bg-gradient-to-br from-accent via-accent/90 to-primary" aria-hidden="true"></div>
+  )}
+
+  <!-- Background Slot -->
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
-    <!-- Subtle gradient background for tech feel -->
-    <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20"></div>
   </div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20">
@@ -33,7 +38,7 @@ const {
       <!-- Tagline -->
       {
         tagline && (
-          <div class="flex items-center justify-center gap-2 text-primary dark:text-primary">
+          <div class="flex items-center justify-center gap-2 text-white animate-fade-in opacity-0" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
             <span class="text-lg font-mono">{'>'}</span>
             <p class="text-sm font-medium tracking-wide uppercase font-mono">{tagline}</p>
           </div>
@@ -43,7 +48,7 @@ const {
       <!-- Main Title -->
       {
         title && (
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight font-heading max-w-5xl mx-auto">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight font-heading max-w-5xl mx-auto text-white animate-slide-up opacity-0" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
             <Fragment set:html={title} />
           </h1>
         )
@@ -52,8 +57,8 @@ const {
       <!-- Subtitle -->
       {
         subtitle && (
-          <div class="max-w-3xl mx-auto">
-            <p class="text-lg sm:text-xl md:text-2xl text-muted dark:text-slate-300 leading-relaxed">
+          <div class="max-w-3xl mx-auto animate-slide-up opacity-0" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+            <p class="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed">
               <Fragment set:html={subtitle} />
             </p>
           </div>
@@ -63,16 +68,12 @@ const {
       <!-- CTAs -->
       {
         actions && (
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto sm:max-w-none">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto sm:max-w-none animate-scale-up opacity-0" style="animation-delay: 0.6s; animation-fill-mode: forwards;">
             {Array.isArray(actions) ? (
-              actions.map((action, index) => (
+              actions.map((action) => (
                 <Button
                   {...(action || {})}
-                  class={`w-full sm:w-auto px-8 py-4 text-lg font-semibold transition-all duration-300 ${
-                    index === 0
-                      ? 'bg-primary hover:bg-secondary text-white shadow-lg hover:shadow-xl hover:scale-105'
-                      : 'bg-transparent border-2 border-primary/30 hover:border-primary text-primary hover:bg-primary/10'
-                  }`}
+                  class="btn-service"
                 />
               ))
             ) : (
@@ -85,7 +86,7 @@ const {
       <!-- Additional content -->
       {
         content && (
-          <div class="max-w-2xl mx-auto">
+          <div class="max-w-2xl mx-auto text-white/80">
             <Fragment set:html={content} />
           </div>
         )
@@ -114,10 +115,12 @@ const {
     }
   </div>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-    <div class="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center">
-      <div class="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
+  <!-- Scroll indicator (Optional) -->
+  {showScrollIndicator && (
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-fade-in opacity-0" style="animation-delay: 0.8s; animation-fill-mode: forwards;">
+      <div class="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center backdrop-blur-sm bg-white/5 hover:border-white/60 transition-colors duration-300">
+        <div class="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
+      </div>
     </div>
-  </div>
+  )}
 </section>
