@@ -36,17 +36,21 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline
-      subtitle="A statically generated blog example with news, tutorials, resources and other interesting content related to AstroWind"
-    >
-      The Blog
-    </Headline>
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl">
+    <div class="text-center mb-12">
+      <div class="flex items-center justify-center gap-2 text-primary mb-4">
+        <span class="text-lg font-mono">|</span>
+        <p class="text-sm font-medium tracking-wide uppercase font-mono">Blog</p>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading text-white mb-4">
+        Insights & <span class="text-primary">Updates</span>
+      </h1>
+      <p class="text-xl text-muted max-w-3xl mx-auto">
+        Tips, tutorials, and insights to help you succeed in the digital world.
+      </p>
+    </div>
+
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    <!--
-      <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
-      <PostTags tags={allTags}  title="Search by Tags:" />
-    -->
   </section>
 </Layout>

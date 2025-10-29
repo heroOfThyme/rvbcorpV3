@@ -1,0 +1,76 @@
+---
+import Button from '~/components/ui/Button.astro';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  content = await Astro.slots.render('content'),
+  actions = await Astro.slots.render('actions'),
+  id,
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<section class="relative py-16 md:py-24 overflow-hidden" {...id ? { id } : {}}>
+  <!-- Background Slot -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <slot name="bg">
+      {bg ? <Fragment set:html={bg} /> : null}
+    </slot>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
+    <!-- Tagline -->
+    {
+      tagline && (
+        <div class="flex items-center justify-center gap-2 text-primary mb-6">
+          <span class="text-lg font-mono">|</span>
+          <p class="text-sm font-medium tracking-wide uppercase font-mono">{tagline}</p>
+        </div>
+      )
+    }
+
+    <!-- Main Title -->
+    {
+      title && (
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tighter tracking-tighter font-heading text-white mb-6">
+          <Fragment set:html={title} />
+        </h1>
+      )
+    }
+
+    <!-- Subtitle -->
+    {
+      subtitle && (
+        <p class="text-xl md:text-2xl text-muted max-w-4xl mx-auto mb-12 leading-relaxed">
+          <Fragment set:html={subtitle} />
+        </p>
+      )
+    }
+
+    <!-- CTAs -->
+    {
+      actions && (
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          {Array.isArray(actions) ? (
+            actions.map((action) => (
+              <Button {...(action || {})} />
+            ))
+          ) : (
+            <Fragment set:html={actions} />
+          )}
+        </div>
+      )
+    }
+
+    <!-- Additional content (for stats, etc) -->
+    {
+      content && (
+        <div class="max-w-4xl mx-auto">
+          <Fragment set:html={content} />
+        </div>
+      )
+    }
+  </div>
+</section>

@@ -61,29 +61,30 @@
     @apply inline-flex items-center justify-center rounded-lg border-gray-400 border bg-transparent font-medium text-center text-sm text-page leading-snug transition py-2 px-4 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
   }
   .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white rounded-lg shadow-lg;
+    background: linear-gradient(to right, rgb(198, 134, 255), rgb(119, 118, 255));
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateY(0);
   }
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(119, 118, 255, 0.4), 0 8px 10px -6px rgba(119, 118, 255, 0.3);
+    opacity: 0.9;
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px -10px rgba(198, 134, 255, 0.5);
   }
   .btn-primary:active {
-    transform: translateY(0);
+    transform: scale(1.02);
   }
 
   .btn-secondary {
-    @apply btn font-semibold bg-transparent text-primary border-primary border-2 hover:bg-[var(--aw-color-primary-10)] hover:border-secondary dark:text-primary dark:border-primary dark:hover:bg-[var(--aw-color-primary-10)] dark:hover:border-secondary;
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white border-2 rounded-lg;
+    border-color: rgb(198, 134, 255);
+    background: transparent;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateY(0);
   }
   .btn-secondary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(119, 118, 255, 0.2), 0 8px 10px -6px rgba(119, 118, 255, 0.15);
+    background: rgba(198, 134, 255, 0.1);
   }
   .btn-secondary:active {
-    transform: translateY(0);
+    background: rgba(198, 134, 255, 0.15);
   }
 
   .btn-tertiary {

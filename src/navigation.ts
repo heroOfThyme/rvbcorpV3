@@ -60,40 +60,32 @@ export const footerData = {
       links: [
         { text: 'Web Development', href: getPermalink('/web-development') },
         { text: 'SEO Services', href: getPermalink('/search-engine-optimization') },
-        { text: 'Business Process Automation', href: getPermalink('/business-process-automation') },
-        { text: 'Google Business Management', href: getPermalink('/google-business-management') },
+        { text: 'Process Automation', href: getPermalink('/business-process-automation') },
+        { text: 'Google Business', href: getPermalink('/google-business-management') },
         { text: 'Web Hosting', href: getPermalink('/web-hosting') },
       ],
     },
     {
       title: 'Company',
       links: [
-        { text: 'About Us', href: getPermalink('/about') },
+        { text: 'About', href: getPermalink('/about') },
         { text: 'Portfolio', href: getPermalink('/portfolio') },
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'Contact', href: getPermalink('/contact') },
       ],
     },
     {
-      title: 'Resources',
+      title: 'Get in Touch',
       links: [
-        { text: 'FAQs', href: getPermalink('/faqs') },
-        { text: 'Privacy Policy', href: getPermalink('/privacy') },
-        { text: 'Terms of Service', href: getPermalink('/terms') },
-      ],
-    },
-    {
-      title: 'Contact',
-      links: [
-        { text: 'Burlington, Ontario', href: '#' },
         { text: 'hello@rvbcorp.com', href: 'mailto:hello@rvbcorp.com' },
         { text: '(365) 324-0642', href: 'tel:3653240642' },
+        { text: 'Burlington, ON', href: '#' },
       ],
     },
   ],
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Privacy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://linkedin.com/company/rvb-data-sciences' },
@@ -101,6 +93,6 @@ export const footerData = {
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/rvbdatasciences' },
   ],
   footNote: `
-    Made with <span class="text-primary">❤</span> by RVB Data Sciences Corp. All rights reserved.
+    © ${new Date().getFullYear()} RVB Data Sciences Corp. All rights reserved.
   `,
 };

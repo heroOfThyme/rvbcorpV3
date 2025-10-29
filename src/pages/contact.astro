@@ -1,6 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
+import ContactHero from '~/components/widgets/ContactHero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
@@ -13,10 +13,8 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Section -->
-  <Hero
-    tagline="LET'S CONNECT"
-    title="Ready to Build Something <em>Amazing</em>?"
-    subtitle="Transform your digital landscape with Burlington's trusted web agency. From custom websites to automation solutions, let's discuss how we can help your business thrive online."
+  <ContactHero
+    tagline="Get In Touch"
     actions={[
       {
         variant: 'primary',
@@ -25,20 +23,46 @@ const metadata = {
         icon: 'tabler:arrow-down',
       },
       {
-        text: 'Call Us Now',
-        href: 'tel:+15198884567',
         variant: 'secondary',
+        text: '(365) 324-0642',
+        href: 'tel:3653240642',
+        icon: 'tabler:phone',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Professional team collaboration and consultation',
-    }}
   >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
+    <Fragment slot="title">
+      Let's Build Something <span style="background: linear-gradient(to right, rgb(198, 134, 255), rgb(119, 118, 255)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Amazing</span>
     </Fragment>
-  </Hero>
+
+    <Fragment slot="subtitle">
+      From custom websites to digital solutions — let's discuss how we can help your business thrive online.
+    </Fragment>
+
+    <Fragment slot="content">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">24h</div>
+          <div class="text-sm text-muted uppercase tracking-wider">Response Time</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
+          <div class="text-sm text-muted uppercase tracking-wider">Projects</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">100%</div>
+          <div class="text-sm text-muted uppercase tracking-wider">Satisfaction</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">Local</div>
+          <div class="text-sm text-muted uppercase tracking-wider">Burlington</div>
+        </div>
+      </div>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[rgb(198,134,255)]/5 to-transparent"></div>
+    </Fragment>
+  </ContactHero>
 
   <!-- Contact Form Section -->
   <section id="contact-form" class="py-16 md:py-20">

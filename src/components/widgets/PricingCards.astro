@@ -102,12 +102,8 @@ const {
             <!-- CTA Button -->
             <div class="mt-auto">
               <Button
-                variant={pkg.isPopular ? "primary" : "secondary"}
-                class={`w-full justify-center rounded-xl py-3 text-base font-medium transition-all duration-300 transform hover:scale-105 ${
-                  pkg.isPopular
-                    ? '!bg-transparent !border-2 !border-white !text-white hover:!bg-white hover:!text-primary shadow-lg hover:shadow-xl'
-                    : 'bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white shadow-md hover:shadow-lg'
-                }`}
+                class={pkg.isPopular ? 'btn-service w-full justify-center' : 'w-full justify-center'}
+                variant={pkg.isPopular ? undefined : 'secondary'}
                 {...(pkg.callToAction || {})}
               >
                 {pkg.callToAction?.text || 'Get Started'}

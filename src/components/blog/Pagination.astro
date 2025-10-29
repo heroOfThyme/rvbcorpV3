@@ -15,22 +15,22 @@ const { prevUrl, nextUrl, prevText = 'Newer posts', nextText = 'Older posts' } =
 
 {
   (prevUrl || nextUrl) && (
-    <div class="container flex">
-      <div class="flex flex-row mx-auto container justify-between">
-        <Button
-          variant="tertiary"
-          class={`md:px-3 px-3 mr-2 ${!prevUrl ? 'invisible' : ''}`}
-          href={getPermalink(prevUrl)}
-        >
-          <Icon name="tabler:chevron-left" class="w-6 h-6" />
-          <p class="ml-2">{prevText}</p>
-        </Button>
+    <div class="flex justify-between items-center mt-12 pt-8 border-t border-[rgb(198,134,255)]/20">
+      <a
+        href={getPermalink(prevUrl)}
+        class={`inline-flex items-center text-muted hover:text-[rgb(198,134,255)] transition-all duration-300 group ${!prevUrl ? 'invisible' : ''}`}
+      >
+        <Icon name="tabler:chevron-left" class="w-5 h-5 mr-2 transition-transform duration-300 group-hover:-translate-x-1" />
+        <span class="font-medium">{prevText}</span>
+      </a>
 
-        <Button variant="tertiary" class={`md:px-3 px-3 ${!nextUrl ? 'invisible' : ''}`} href={getPermalink(nextUrl)}>
-          <span class="mr-2">{nextText}</span>
-          <Icon name="tabler:chevron-right" class="w-6 h-6" />
-        </Button>
-      </div>
+      <a
+        href={getPermalink(nextUrl)}
+        class={`inline-flex items-center text-muted hover:text-[rgb(198,134,255)] transition-all duration-300 group ${!nextUrl ? 'invisible' : ''}`}
+      >
+        <span class="font-medium">{nextText}</span>
+        <Icon name="tabler:chevron-right" class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+      </a>
     </div>
   )
 }
