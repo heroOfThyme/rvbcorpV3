@@ -16,18 +16,17 @@ const {
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 
-// Your signature bold gradient style!
+// Simple alternating pattern - Purple, Pink, Purple, Pink, etc.
 const projectGradients = [
-  'from-primary via-primary/90 to-secondary',
-  'from-accent via-accent/90 to-primary',
-  'from-secondary via-secondary/90 to-primary',
+  'from-primary via-primary/90 to-secondary',    // Purple
+  'from-accent via-accent/90 to-primary',        // Pink
 ];
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
 
-  <!-- Clean Equal Grid Layout -->
+  <!-- Clean Equal Grid Layout - Shows 3 featured projects -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {projects.slice(0, 3).map(({
       title: projectTitle,

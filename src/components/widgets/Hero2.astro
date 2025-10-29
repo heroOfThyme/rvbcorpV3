@@ -30,10 +30,10 @@ const {
       <div class="basis-1/2 text-center lg:text-left pb-10 md:pb-16 mx-auto">
         {
           tagline && (
-            <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter"
-              set:html={tagline}
-            />
+            <div class="flex items-center justify-center lg:justify-start gap-2 text-primary animate-fade-in opacity-0 mb-4" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
+              <span class="text-lg font-mono">{'>'}</span>
+              <p class="text-sm font-medium tracking-wide uppercase font-mono">{tagline}</p>
+            </div>
           )
         }
         {

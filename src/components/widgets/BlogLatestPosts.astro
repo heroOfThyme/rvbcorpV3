@@ -1,5 +1,5 @@
 ---
-import { APP_BLOG } from 'astrowind:config';
+import { APP_BLOG } from 'rvbcorp:config';
 import { getBlogPermalink } from '~/utils/permalinks';
 import { findLatestPosts } from '~/utils/blog';
 import Headline from '~/components/ui/Headline.astro';
@@ -32,6 +32,11 @@ const {
 
 const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }) : [];
 
+// Simple alternating pattern - Purple, Pink, Purple, Pink, etc.
+const blogGradients = [
+  'from-primary via-primary/90 to-secondary',    // Purple
+  'from-accent via-accent/90 to-primary',        // Pink
+];
 ---
 
 {
@@ -44,18 +49,18 @@ const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }) : [];
           tagline={tagline}
           classes={{
             ...classes?.headline as Record<string, string>,
-            title: 'text-3xl md:text-4xl bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent'
+            title: 'text-3xl md:text-4xl'
           }}
         />
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 md:mt-12">
-        {posts.slice(0, 3).map(async (post) => {
+        {posts.slice(0, 3).map(async (post, index) => {
           const image = await findImage(post.image);
           const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
 
           return (
             <article class="group h-full">
-              <div class="relative bg-[#0a0a0a] border border-[rgba(119,118,255,0.2)] rounded-3xl overflow-hidden transition-all duration-300 h-full flex flex-col shadow-xl hover:shadow-2xl hover:scale-[1.02]">
+              <div class={`relative bg-gradient-to-br ${blogGradients[index % blogGradients.length]} rounded-3xl overflow-hidden transition-all duration-500 h-full flex flex-col shadow-xl hover:shadow-2xl hover:scale-[1.02]`}>
 
                 <!-- Blog Image with gradient overlay -->
                 {image && (
@@ -143,6 +148,9 @@ const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }) : [];
                     </div>
                   )}
                 </div>
+
+                <!-- Enhanced hover overlay -->
+                <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"></div>
               </div>
             </article>
           );

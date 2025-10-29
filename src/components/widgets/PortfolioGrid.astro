@@ -1,0 +1,142 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+import { Icon } from 'astro-icon/components';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  projects = [],
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+// Simple alternating pattern - Purple, Pink, Purple, Pink, etc.
+const projectGradients = [
+  'from-primary via-primary/90 to-secondary',    // Purple
+  'from-accent via-accent/90 to-primary',        // Pink
+];
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+
+  <!-- Full Portfolio Grid Layout - Shows all projects -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {projects.map(({
+      title: projectTitle,
+      description,
+      image,
+      technologies = [],
+      liveUrl,
+      caseStudyUrl,
+      category,
+      completedDate
+    }, index) => (
+      <article class="group h-full">
+        <div class={`relative bg-gradient-to-br ${projectGradients[index % projectGradients.length]} rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col hover:scale-[1.02]`}>
+
+          <!-- Project Image with gradient overlay -->
+          {image && (
+            <div class="relative h-48 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
+              {typeof image === 'string' ? (
+                <img
+                  src={image}
+                  alt={projectTitle}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              ) : (
+                <Image
+                  {...image}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  widths={[400, 768]}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              )}
+
+              <!-- Category Badge with glass effect -->
+              {category && (
+                <div class="absolute top-4 left-4 z-20">
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-white/20 text-white backdrop-blur-md border border-white/30">
+                    {category}
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
+
+          <!-- Content Section -->
+          <div class="p-8 flex-1 flex flex-col min-h-[280px]">
+            <!-- Project Title -->
+            {projectTitle && (
+              <h3 class="text-2xl font-bold text-white mb-3 leading-tight">
+                {projectTitle}
+              </h3>
+            )}
+
+            <!-- Description -->
+            {description && (
+              <p class="text-white/90 leading-relaxed mb-4 text-base flex-1">
+                {description}
+              </p>
+            )}
+
+            <!-- Technologies -->
+            {technologies.length > 0 && (
+              <div class="flex flex-wrap gap-2 mb-6">
+                {technologies.slice(0, 4).map((tech) => (
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-white/15 text-white backdrop-blur-sm border border-white/25">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            <!-- Project Actions -->
+            <div class="flex flex-wrap gap-3 mt-auto">
+              {liveUrl && (
+                <Button
+                  href={liveUrl}
+                  target="_blank"
+                  class="btn-service flex items-center gap-2"
+                >
+                  <Icon name="tabler:external-link" class="w-4 h-4" />
+                  View Live
+                </Button>
+              )}
+
+              {caseStudyUrl && (
+                <Button
+                  href={caseStudyUrl}
+                  class="btn-service flex items-center gap-2"
+                >
+                  <Icon name="tabler:file-text" class="w-4 h-4" />
+                  Case Study
+                </Button>
+              )}
+            </div>
+
+            <!-- Completion Date -->
+            {completedDate && (
+              <div class="mt-4 pt-4 border-t border-white/20">
+                <span class="text-white/70 text-sm flex items-center gap-2 font-medium">
+                  <Icon name="tabler:calendar" class="w-4 h-4" />
+                  Completed {completedDate}
+                </span>
+              </div>
+            )}
+          </div>
+
+          <!-- Enhanced hover overlay -->
+          <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"></div>
+        </div>
+      </article>
+    ))}
+  </div>
+</WidgetWrapper>

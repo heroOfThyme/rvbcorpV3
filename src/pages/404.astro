@@ -6,19 +6,37 @@ const title = `Error 404`;
 ---
 
 <Layout metadata={{ title }}>
-  <section class="flex items-center h-full p-16">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-center">
-        <h2 class="mb-8 font-bold text-9xl">
-          <span class="sr-only">Error</span>
-          <span class="text-primary">404</span>
-        </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
-        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But dont worry, you can find plenty of other things on our homepage.
-        </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
+  <section class="relative flex items-center justify-center min-h-screen overflow-hidden">
+    <!-- Gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[rgb(198,134,255)]/5 via-transparent to-[rgb(119,118,255)]/5"></div>
+
+    <div class="relative max-w-2xl mx-auto px-6 text-center">
+      <!-- 404 with gradient -->
+      <div class="mb-8">
+        <h1
+          class="text-9xl md:text-[12rem] font-bold leading-none mb-4"
+          style="background: linear-gradient(to right, rgb(198, 134, 255), rgb(119, 118, 255)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"
+        >
+          404
+        </h1>
+        <div class="flex items-center justify-center gap-2 text-primary mb-6">
+          <span class="text-lg font-mono">|</span>
+          <p class="text-sm font-medium tracking-wide uppercase font-mono">Page Not Found</p>
+        </div>
       </div>
+
+      <!-- Message -->
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Oops, this page doesn't exist
+      </h2>
+      <p class="text-xl text-muted mb-8 max-w-lg mx-auto">
+        Looks like you've ventured into uncharted territory. Let's get you back on track.
+      </p>
+
+      <!-- Button -->
+      <a href={getHomePermalink()} class="btn-primary">
+        Back to Homepage
+      </a>
     </div>
   </section>
 </Layout>
