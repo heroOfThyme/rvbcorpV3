@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero2 from '~/components/widgets/Hero2.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -18,7 +18,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Section -->
-  <Hero2
+  <Hero
     tagline="Business Process Automation"
     actions={[
       {
@@ -42,7 +42,7 @@ const metadata = {
     <Fragment slot="subtitle">
       Eliminate manual tasks, reduce errors, and scale your operations with intelligent automation solutions. Our Burlington-based team helps businesses streamline processes and boost efficiency with custom automation tailored to your needs.
     </Fragment>
-  </Hero2>
+  </Hero>
 
   <!-- Section Divider -->
   <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>

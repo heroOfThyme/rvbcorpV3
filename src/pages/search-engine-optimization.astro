@@ -6,7 +6,6 @@ import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
@@ -20,7 +19,7 @@ const metadata = {
   <!-- Hero Section -->
   <Hero2
     tagline="Search Engine Optimization"
-    image={{ src: "~/assets/images/seo-service-main.webp", alt: "SEO Services"}}
+    image={{ src: '~/assets/images/seo-service-main.webp', alt: 'SEO Services' }}
     actions={[
       {
         variant: 'primary',
@@ -41,7 +40,9 @@ const metadata = {
       >
     </Fragment>
     <Fragment slot="subtitle">
-      Get found by customers actively searching for your services. Our Burlington-based team uses data-driven SEO strategies to improve your search rankings, drive organic traffic, and deliver measurable results for businesses everywhere.
+      Get found by customers actively searching for your services. Our Burlington-based team uses data-driven SEO
+      strategies to improve your search rankings, drive organic traffic, and deliver measurable results for businesses
+      everywhere.
     </Fragment>
   </Hero2>
 
@@ -104,10 +105,10 @@ const metadata = {
     subtitle="A systematic approach that delivers consistent results for businesses like yours."
     tagline="HOW WE WORK"
     image={{
-      src: '~/assets/images/seo-process-dashboard.webp',
+      src: '~/assets/images/image-20250512085705-5.jpg',
       alt: 'SEO strategy planning and analytics dashboard',
     }}
-    columns={3}
+    columns={4}
     items={[
       {
         title: '1. Deep Dive Audit',
@@ -145,17 +146,12 @@ const metadata = {
     content="<p>Don't just take our word for it. Our proven SEO methodologies have helped businesses across industries achieve remarkable growth in organic traffic, search rankings, and most importantly - revenue.</p><p>We focus on metrics that matter to your business: qualified leads, conversions, and ROI. Every strategy is tailored to your specific industry, competition, and business goals.</p>"
     items={[
       {
-        title: '300% Average Traffic Increase',
-        description: 'Our clients see dramatic organic traffic growth within 6-12 months.',
-        icon: 'tabler:trending-up',
-      },
-      {
         title: 'Top 3 Rankings for Target Keywords',
         description: 'We consistently get businesses ranking on page 1 for their most valuable search terms.',
         icon: 'tabler:trophy',
       },
       {
-        title: '150% Boost in Qualified Leads',
+        title: 'Boost in Qualified Leads',
         description: 'More traffic means more customers. Our SEO attracts visitors ready to buy.',
         icon: 'tabler:users',
       },
@@ -166,62 +162,14 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      src: '~/assets/images/rvb-logo-icon.svg',
       alt: 'SEO growth charts and performance metrics dashboard',
     }}
     callToAction={{
       text: 'See Full Case Studies →',
-      href: '#case-studies',
+      href: '/blog',
       variant: 'link',
     }}
-  />
-
-  <!-- Section Divider -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-
-  <!-- Why Choose Us Section -->
-  <Features
-    id="why-us"
-    title="Why Businesses Choose Our SEO Services"
-    subtitle="Experience the difference that comes from working with SEO experts who understand your business"
-    tagline="THE ADVANTAGE"
-    columns={2}
-    items={[
-      {
-        title: 'Proven Track Record',
-        description:
-          'Years of experience delivering first-page rankings for businesses across industries. We know what works.',
-        icon: 'tabler:award',
-      },
-      {
-        title: 'Transparent Reporting',
-        description:
-          'No black-box tactics. Get detailed monthly reports showing exactly what we did and the results achieved.',
-        icon: 'tabler:report',
-      },
-      {
-        title: 'White-Hat Techniques Only',
-        description: 'We follow Google guidelines strictly. Build long-term organic growth without risking penalties.',
-        icon: 'tabler:shield-check',
-      },
-      {
-        title: 'Custom Strategy for Your Business',
-        description:
-          'No cookie-cutter approaches. Every strategy is tailored to your specific industry and competitive landscape.',
-        icon: 'tabler:puzzle',
-      },
-      {
-        title: 'Dedicated SEO Specialist',
-        description: 'Work directly with an experienced SEO professional who understands your business and goals.',
-        icon: 'tabler:user-check',
-      },
-      {
-        title: 'Continuous Optimization',
-        description:
-          'SEO never stops. We continuously monitor, test, and optimize to maintain and improve your rankings.',
-        icon: 'tabler:refresh',
-      },
-    ]}
   />
 
   <!-- Section Divider -->
