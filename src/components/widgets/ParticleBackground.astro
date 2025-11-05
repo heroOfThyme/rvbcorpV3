@@ -1,0 +1,139 @@
+---
+interface Props {
+  particleCount?: number;
+  particleColor?: string;
+  lineColor?: string;
+  particleSpeed?: number;
+  connectionDistance?: number;
+}
+
+const {
+  particleCount = 60,
+  particleColor = 'rgba(124, 58, 237, 0.5)', // primary color with opacity
+  lineColor = 'rgba(124, 58, 237, 0.15)',
+  particleSpeed = 0.5,
+  connectionDistance = 150,
+} = Astro.props;
+---
+
+<canvas
+  id="particle-canvas"
+  class="absolute inset-0 w-full h-full"
+  style="z-index: 1;"
+  data-particle-count={particleCount}
+  data-particle-color={particleColor}
+  data-line-color={lineColor}
+  data-particle-speed={particleSpeed}
+  data-connection-distance={connectionDistance}
+></canvas>
+
+<script is:inline>
+  (function() {
+    function initParticles() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      // Get configuration from data attributes
+      const particleCount = parseInt(canvas.dataset.particleCount || '60');
+      const particleColor = canvas.dataset.particleColor || 'rgba(124, 58, 237, 0.5)';
+      const lineColor = canvas.dataset.lineColor || 'rgba(124, 58, 237, 0.15)';
+      const particleSpeed = parseFloat(canvas.dataset.particleSpeed || '0.5');
+      const connectionDistance = parseInt(canvas.dataset.connectionDistance || '150');
+
+      // Set canvas size
+      function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      // Particle class
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * particleSpeed;
+          this.vy = (Math.random() - 0.5) * particleSpeed;
+          this.size = Math.random() * 2 + 1;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          // Wrap around edges
+          if (this.x < 0) this.x = canvas.width;
+          if (this.x > canvas.width) this.x = 0;
+          if (this.y < 0) this.y = canvas.height;
+          if (this.y > canvas.height) this.y = 0;
+        }
+
+        draw() {
+          if (!ctx) return;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = particleColor;
+          ctx.fill();
+        }
+      }
+
+      // Create particles
+      const particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      // Draw connections between particles
+      function drawConnections() {
+        if (!ctx) return;
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < connectionDistance) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              const opacity = 1 - distance / connectionDistance;
+              ctx.strokeStyle = lineColor.replace(/[\d.]+\)$/g, `${opacity * 0.15})`);
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      // Animation loop
+      function animate() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach((particle) => {
+          particle.update();
+          particle.draw();
+        });
+
+        drawConnections();
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+
+    // Initialize
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initParticles);
+    } else {
+      initParticles();
+    }
+
+    // Support for Astro view transitions
+    document.addEventListener('astro:after-swap', initParticles);
+  })();
+</script>

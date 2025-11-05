@@ -23,17 +23,17 @@ const {
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden -mt-[100px] pt-[100px]" {...id ? { id } : {}}>
   <!-- Gradient Background (Optional) -->
   {hasGradient && (
-    <div class="absolute inset-0 bg-gradient-to-br from-accent via-accent/90 to-primary" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-accent via-accent/90 to-primary -z-10" aria-hidden="true"></div>
   )}
 
   <!-- Background Slot -->
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+  <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
 
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20">
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-20">
     <div class="text-center space-y-8">
       <!-- Tagline -->
       {

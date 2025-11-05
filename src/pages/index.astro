@@ -7,6 +7,7 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import ServiceCards from '~/components/widgets/ServiceCards.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
+import ParticleBackground from '~/components/widgets/ParticleBackground.astro';
 
 const metadata = {
   title: 'RVBCorp - Burlington Web Agency | Web Development, SEO & Digital Solutions',
@@ -35,6 +36,15 @@ const metadata = {
       },
     ]}
   >
+    <Fragment slot="bg">
+      <ParticleBackground
+        particleCount={60}
+        particleColor="rgba(255, 255, 255, 0.5)"
+        lineColor="rgba(255, 255, 255, 0.15)"
+        particleSpeed={0.4}
+        connectionDistance={140}
+      />
+    </Fragment>
     <Fragment slot="title">
       Tailored <span class="text-white">Web Solutions</span>
     </Fragment>
