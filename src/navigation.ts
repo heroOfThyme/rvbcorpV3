@@ -46,7 +46,7 @@ export const headerData = {
   ],
   actions: [
     {
-      text: 'Get Started',
+      text: 'Work With Us',
       href: getPermalink('/contact'),
       variant: 'primary',
     },
@@ -89,7 +89,6 @@ export const footerData = {
   ],
   socialLinks: [
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://linkedin.com/company/rvb-data-sciences' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/rvbdatasciences' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/rvbdatasciences' },
   ],
   footNote: `

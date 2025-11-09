@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import ContactHero from '~/components/widgets/ContactHero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
   title: "Contact Us | Let's Build Something Amazing Together",
@@ -12,7 +13,6 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Section -->
   <ContactHero
     tagline="Get In Touch"
     actions={[
@@ -21,12 +21,6 @@ const metadata = {
         text: 'Start Conversation',
         href: '#contact-form',
         icon: 'tabler:arrow-down',
-      },
-      {
-        variant: 'secondary',
-        text: '(365) 324-0642',
-        href: 'tel:3653240642',
-        icon: 'tabler:phone',
       },
     ]}
   >
@@ -39,22 +33,18 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="content">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="text-center">
-          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">24h</div>
+          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">24 Hour</div>
           <div class="text-sm text-muted uppercase tracking-wider">Response Time</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
-          <div class="text-sm text-muted uppercase tracking-wider">Projects</div>
+          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">5+ Years</div>
+          <div class="text-sm text-muted uppercase tracking-wider">Experience</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">100%</div>
-          <div class="text-sm text-muted uppercase tracking-wider">Satisfaction</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">Local</div>
-          <div class="text-sm text-muted uppercase tracking-wider">Burlington</div>
+          <div class="text-3xl md:text-4xl font-bold text-primary mb-2">Personalized</div>
+          <div class="text-sm text-muted uppercase tracking-wider">Solutions</div>
         </div>
       </div>
     </Fragment>
@@ -64,11 +54,9 @@ const metadata = {
     </Fragment>
   </ContactHero>
 
-  <!-- Contact Form Section -->
   <section id="contact-form" class="py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-start">
-        <!-- Left side - Form -->
         <div>
           <div class="mb-8">
             <div class="text-primary text-sm font-semibold uppercase tracking-wide mb-4">GET STARTED</div>
@@ -78,19 +66,17 @@ const metadata = {
             </p>
           </div>
 
-          <!-- Your Beautiful Gradient Form Directly -->
           <form
             id="contact-form"
             data-netlify="true"
             method="POST"
             name="contact"
-            class="relative p-8 rounded-3xl bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20 backdrop-blur-sm border border-gradient overflow-hidden"
+            class="relative p-8 rounded-3xl bg-gradient-to-br from-[rgba(119,118,255,0.2)] via-[rgba(97,97,210,0.1)] to-[rgba(198,134,255,0.2)] backdrop-blur-sm border border-gradient overflow-hidden"
             data-astro-reload
             novalidate
           >
-            <!-- Animated background gradients -->
             <div
-              class="absolute inset-0 bg-gradient-to-r from-primary/30 via-accent/20 to-secondary/30 opacity-50 animate-pulse"
+              class="absolute inset-0 bg-gradient-to-r from-[rgba(119,118,255,0.3)] via-[rgba(198,134,255,0.2)] to-[rgba(97,97,210,0.3)] opacity-50 animate-pulse"
             >
             </div>
             <div
@@ -102,7 +88,6 @@ const metadata = {
             >
             </div>
 
-            <!-- Floating gradient orbs -->
             <div
               class="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-primary to-accent opacity-20 rounded-full blur-xl animate-float"
             >
@@ -117,7 +102,8 @@ const metadata = {
             </div>
 
             <div class="relative z-10">
-              <!-- Form Header with gradient text -->
+              <input type="hidden" name="form-name" value="contact" />
+
               <div class="text-center mb-8">
                 <h3
                   class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent mb-2"
@@ -127,7 +113,6 @@ const metadata = {
                 <p class="text-gray-300">Fill out the form below and let's start your project journey!</p>
               </div>
 
-              <!-- Name Field -->
               <div class="mb-6 group">
                 <label
                   for="name"
@@ -150,17 +135,16 @@ const metadata = {
                     autocomplete="name"
                     placeholder="Enter your full name"
                     required
-                    class="py-4 px-5 block w-full text-md rounded-xl border-2 border-gray-700 hover:border-gray-600 bg-transparent backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all duration-300"
+                    class="py-4 px-5 block w-full text-md rounded-xl border-2 border-gray-700 hover:border-gray-600 bg-transparent backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-[rgba(119,118,255,0.3)] transition-all duration-300"
                   />
                   <div
-                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-[rgba(119,118,255,0.1)] via-[rgba(198,134,255,0.05)] to-[rgba(97,97,210,0.1)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   >
                   </div>
                 </div>
                 <div class="invalid-feedback text-red-400 text-sm mt-1 hidden">Please provide your full name.</div>
               </div>
 
-              <!-- Email Field -->
               <div class="mb-6 group">
                 <label
                   for="email"
@@ -184,10 +168,10 @@ const metadata = {
                     autocomplete="email"
                     placeholder="your.email@example.com"
                     required
-                    class="py-4 px-5 block w-full text-md rounded-xl border-2 border-gray-700 hover:border-gray-600 bg-transparent backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition-all duration-300"
+                    class="py-4 px-5 block w-full text-md rounded-xl border-2 border-gray-700 hover:border-gray-600 bg-transparent backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-[rgba(198,134,255,0.3)] transition-all duration-300"
                   />
                   <div
-                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-accent/10 via-primary/5 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-[rgba(198,134,255,0.1)] via-[rgba(119,118,255,0.05)] to-[rgba(97,97,210,0.1)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   >
                   </div>
                 </div>
@@ -196,7 +180,6 @@ const metadata = {
                 </div>
               </div>
 
-              <!-- Phone Field -->
               <div class="mb-6 group">
                 <label
                   for="phone"
@@ -219,16 +202,15 @@ const metadata = {
                     id="phone"
                     autocomplete="tel"
                     placeholder="(555) 123-4567"
-                    class="py-4 px-5 block w-full text-md rounded-xl border-2 border-gray-700 hover:border-gray-600 bg-transparent backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/30 transition-all duration-300"
+                    class="py-4 px-5 block w-full text-md rounded-xl border-2 border-gray-700 hover:border-gray-600 bg-transparent backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-[rgba(97,97,210,0.3)] transition-all duration-300"
                   />
                   <div
-                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-secondary/10 via-accent/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-[rgba(97,97,210,0.1)] via-[rgba(198,134,255,0.05)] to-[rgba(119,118,255,0.1)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   >
                   </div>
                 </div>
               </div>
 
-              <!-- Service Selection with gradient styling -->
               <div class="mb-6 group">
                 <label
                   for="service"
@@ -247,7 +229,7 @@ const metadata = {
                   <select
                     id="service"
                     name="service"
-                    class="appearance-none py-4 px-5 block w-full text-md rounded-xl border-2 border-gray-700 hover:border-gray-600 bg-transparent backdrop-blur-sm text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all duration-300"
+                    class="appearance-none py-4 px-5 block w-full text-md rounded-xl border-2 border-gray-700 hover:border-gray-600 bg-transparent backdrop-blur-sm text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-[rgba(119,118,255,0.3)] transition-all duration-300"
                     required
                   >
                     <option value="" disabled selected>Select a service</option>
@@ -269,14 +251,13 @@ const metadata = {
                     </div>
                   </div>
                   <div
-                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/10 via-secondary/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-[rgba(119,118,255,0.1)] via-[rgba(97,97,210,0.05)] to-[rgba(198,134,255,0.1)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   >
                   </div>
                 </div>
                 <div class="invalid-feedback text-red-400 text-sm mt-1 hidden">Please select a service.</div>
               </div>
 
-              <!-- Message Field with gradient border -->
               <div class="mb-6 group">
                 <label
                   for="message"
@@ -299,19 +280,18 @@ const metadata = {
                     rows="6"
                     placeholder="Tell us about your project, goals, timeline, budget range, and any specific requirements..."
                     required
-                    class="py-4 px-5 block w-full text-md rounded-xl border-2 border-gray-700 hover:border-gray-600 bg-transparent backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 resize-none transition-all duration-300"
+                    class="py-4 px-5 block w-full text-md rounded-xl border-2 border-gray-700 hover:border-gray-600 bg-transparent backdrop-blur-sm text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-[rgba(119,118,255,0.3)] resize-none transition-all duration-300"
                   ></textarea>
                   <div
-                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-[rgba(119,118,255,0.1)] via-[rgba(198,134,255,0.05)] to-[rgba(97,97,210,0.1)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   >
                   </div>
                 </div>
                 <div class="invalid-feedback text-red-400 text-sm mt-1 hidden">Please describe your project.</div>
               </div>
 
-              <!-- Colorful disclaimer -->
               <div
-                class="mb-8 p-4 rounded-xl bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 border border-primary/20 backdrop-blur-sm"
+                class="mb-8 p-4 rounded-xl bg-gradient-to-r from-[rgba(119,118,255,0.1)] via-[rgba(198,134,255,0.05)] to-[rgba(97,97,210,0.1)] border border-[rgba(119,118,255,0.2)] backdrop-blur-sm"
               >
                 <p class="text-sm text-gray-300 text-center">
                   <svg
@@ -331,7 +311,6 @@ const metadata = {
                 </p>
               </div>
 
-              <!-- Epic gradient submit button -->
               <div class="relative group">
                 <div
                   class="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-xl blur opacity-70 group-hover:opacity-100 transition duration-300"
@@ -339,7 +318,7 @@ const metadata = {
                 </div>
                 <button
                   type="submit"
-                  class="relative w-full px-6 py-5 text-white font-bold text-lg rounded-xl bg-gradient-to-r from-primary via-accent to-secondary hover:from-primary/90 hover:via-accent/90 hover:to-secondary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-[1.02] transition-all duration-300"
+                  class="relative w-full px-6 py-5 text-white font-bold text-lg rounded-xl bg-gradient-to-r from-primary via-accent to-secondary hover:from-[rgba(119,118,255,0.9)] hover:via-[rgba(198,134,255,0.9)] hover:to-[rgba(97,97,210,0.9)] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-gray-900 transform hover:scale-[1.02] transition-all duration-300"
                 >
                   <div class="flex items-center justify-center">
                     <span class="bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent"
@@ -372,9 +351,7 @@ const metadata = {
           </form>
         </div>
 
-        <!-- Right side - Contact Info & Quick Facts -->
         <div class="lg:pl-12">
-          <!-- Contact Methods -->
           <div class="mb-12">
             <h3 class="text-2xl font-bold text-white mb-8">Get In Touch</h3>
             <div class="space-y-6">
@@ -394,25 +371,6 @@ const metadata = {
                 <div>
                   <p class="text-white font-semibold text-lg">hello@rvbcorp.com</p>
                   <p class="text-gray-400">We typically respond within 24 hours</p>
-                </div>
-              </div>
-
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 rounded-xl bg-gradient-to-r from-secondary to-primary flex items-center justify-center mr-6 flex-shrink-0"
-                >
-                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p class="text-white font-semibold text-lg">(519) 888-4567</p>
-                  <p class="text-gray-400">Available during business hours</p>
                 </div>
               </div>
 
@@ -441,9 +399,8 @@ const metadata = {
             </div>
           </div>
 
-          <!-- What to Expect -->
           <div
-            class="p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10 border border-primary/20"
+            class="p-8 rounded-2xl bg-gradient-to-r from-[rgba(119,118,255,0.1)] via-[rgba(198,134,255,0.05)] to-[rgba(97,97,210,0.1)] border border-[rgba(119,118,255,0.2)]"
           >
             <h4 class="text-xl font-bold text-white mb-6">What Happens Next?</h4>
             <div class="space-y-4">
@@ -472,7 +429,45 @@ const metadata = {
     </div>
   </section>
 
-  <!-- Simple CTA -->
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Welcome to our FAQ section, for insightful answers to your tech questions, designed for your convenience."
+    tagline="FAQ"
+    columns={2}
+    items={[
+      {
+        title: 'How long does it take to design and develop a website?',
+        description:
+          'Typically, a website takes between 1 to 3 weeks to complete. However, this duration can fluctuate based on your unique requirements. During our initial consultation, we will gain a better understanding of your needs and will be able to provide a more precise timeline.',
+      },
+      {
+        title: 'How much input will I have during the design process?',
+        description:
+          'Your input guides our design process. We initiate projects with a discovery session to understand your brand and goals, then involve you at every step, presenting concepts for your approval to ensure the website accurately represents your business.',
+      },
+      {
+        title: 'Can you provide ongoing maintenance and updates after the website is launched?',
+        description:
+          'Yes, we offer ongoing maintenance and update services post-launch to ensure your website remains current and functional. The specifics of these services can be discussed during our consultation.',
+      },
+      {
+        title: 'Do you provide training or support for website management after launch?',
+        description:
+          'Yes, we offer training and support to help you manage your website post-launch. We provide tutorials and documentation to guide you through the process and are available to answer any questions you may have.',
+      },
+      {
+        title: 'What is the cost of a website?',
+        description:
+          'The cost of a website varies based on your unique requirements. We offer a range of packages to suit different budgets and can provide a more accurate quote after our initial consultation.',
+      },
+      {
+        title: 'What is the difference between a website and a web application?',
+        description:
+          'A website is a collection of web pages that are linked together and accessed through a browser. A web application is a website that allows users to interact with it, perform specific tasks, and access dynamic content.',
+      },
+    ]}
+  />
+
   <CallToAction
     title="Questions About Our Services?"
     subtitle="Check out our individual service pages or portfolio to learn more about what we do."
@@ -638,7 +633,7 @@ const metadata = {
         myForm.reset();
         myForm.classList.remove('was-validated');
         result.innerHTML = `
-          <div class="p-6 rounded-xl bg-gradient-to-r from-primary/20 via-accent/10 to-secondary/20 border border-primary/30 backdrop-blur-sm">
+          <div class="p-6 rounded-xl bg-gradient-to-r from-[rgba(119,118,255,0.2)] via-[rgba(198,134,255,0.1)] to-[rgba(97,97,210,0.2)] border border-[rgba(119,118,255,0.3)] backdrop-blur-sm">
             <div class="flex items-center justify-center mb-3">
               <div class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

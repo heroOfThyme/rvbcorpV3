@@ -2,7 +2,6 @@
 import Layout from '~/layouts/PageLayout.astro';
 import AboutSection from '~/components/widgets/AboutSection.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import { Icon } from 'astro-icon/components';
@@ -108,7 +107,11 @@ const metadata = {
               { name: 'TypeScript', icon: 'tabler:brand-typescript', color: '#3178C6' },
               { name: 'Tailwind CSS', icon: 'tabler:palette', color: '#06B6D4' },
               { name: 'Node.js', icon: 'tabler:brand-nodejs', color: '#339933' },
-              { name: 'Google Cloud', icon: 'tabler:brand-google', color: '#4285F4' },
+              { name: 'PHP', icon: 'tabler:brand-php', color: '#777BB4' },
+              { name: 'Laravel', icon: 'tabler:brand-laravel', color: '#FF2D20' },
+              { name: 'MySQL', icon: 'tabler:brand-mysql', color: '#4479A1' },
+              { name: 'GitHub', icon: 'tabler:brand-github', color: '#7776ff' },
+              { name: 'Netlify', icon: 'tabler:server', color: '#00C7B7' },
             ].map((tech) => {
               return (
                 <li class="flex items-center gap-4 text-white">
@@ -153,26 +156,4 @@ const metadata = {
     ]}
   />
 
-  <!-- Section Divider -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-
-  <!-- Final CTA -->
-  <CallToAction
-    tagline="Ready to Start?"
-    title="Let's Build Something <span class='text-primary'>Amazing</span> Together"
-    subtitle="Contact us today to discuss your project and discover how we can help you achieve your goals."
-    actions={[
-      {
-        text: 'Start Your Project',
-        href: '/contact',
-        icon: 'tabler:arrow-right',
-        variant: 'primary',
-      },
-      {
-        text: 'View Our Work',
-        href: '/portfolio',
-        variant: 'secondary',
-      },
-    ]}
-  />
 </Layout>
