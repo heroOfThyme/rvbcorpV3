@@ -15,8 +15,8 @@ metadata:
   Our team specializes in creating dynamic, user-friendly websites that drive growth and improve online presence.
   Contact us today to transform your digital landscape."
   robots:
-    index: false
-    follow: false
+    index: true
+    follow: true
   openGraph:
     site_name: RVB Data Sciences
     images:
