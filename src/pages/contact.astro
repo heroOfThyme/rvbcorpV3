@@ -68,12 +68,11 @@ const metadata = {
 
           <form
             id="contact-form"
-            data-netlify="true"
-            method="POST"
             name="contact"
+            method="POST"
+            netlify
+            netlify-honeypot="bot-field"
             class="relative p-8 rounded-3xl bg-gradient-to-br from-[rgba(119,118,255,0.2)] via-[rgba(97,97,210,0.1)] to-[rgba(198,134,255,0.2)] backdrop-blur-sm border border-gradient overflow-hidden"
-            data-astro-reload
-            novalidate
           >
             <div
               class="absolute inset-0 bg-gradient-to-r from-[rgba(119,118,255,0.3)] via-[rgba(198,134,255,0.2)] to-[rgba(97,97,210,0.3)] opacity-50 animate-pulse"
@@ -103,6 +102,11 @@ const metadata = {
 
             <div class="relative z-10">
               <input type="hidden" name="form-name" value="contact" />
+              <p class="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
 
               <div class="text-center mb-8">
                 <h3
