@@ -42,8 +42,8 @@ const cardGradients = [
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
 
   <!-- Main About Content -->
-  <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16">
-    
+  <div class="max-w-3xl mx-auto mb-16">
+
     <!-- Content Side -->
     <div class="space-y-6">
       <div class="prose prose-lg dark:prose-invert max-w-none">
@@ -56,31 +56,20 @@ const cardGradients = [
       </div>
 
       <!-- Quick Stats or Highlights -->
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
         <div class="bg-gradient-to-br from-primary/10 to-accent/5 rounded-xl p-4 border border-white/10">
-          <div class="text-2xl font-bold text-primary mb-1">15+</div>
-          <div class="text-sm text-white/70">Local Businesses Served</div>
+          <div class="text-2xl font-bold text-primary mb-1">5+</div>
+          <div class="text-sm text-white/70">Businesses Served</div>
         </div>
         <div class="bg-gradient-to-br from-accent/10 to-secondary/5 rounded-xl p-4 border border-white/10">
           <div class="text-2xl font-bold text-accent mb-1">100%</div>
           <div class="text-sm text-white/70">Client Satisfaction</div>
         </div>
       </div>
-
-      <!-- CTA Button -->
-      <div class="pt-4">
-        <Button
-          href="/contact"
-          variant="primary"
-          class="px-6 py-3"
-        >
-          Work With Us
-        </Button>
-      </div>
     </div>
 
-    <!-- Image Side -->
-    <div class="lg:order-last">
+    <!-- Image Side - COMMENTED OUT FOR LATER USE -->
+    <!-- <div class="lg:order-last">
       {image ? (
         <div class="relative max-w-sm mx-auto">
           <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-xl opacity-50"></div>
@@ -100,7 +89,7 @@ const cardGradients = [
           <p class="text-white/60 text-sm">Confidence is building! 📸</p>
         </div>
       )}
-    </div>
+    </div> -->
   </div>
 
   <!-- Values Section -->

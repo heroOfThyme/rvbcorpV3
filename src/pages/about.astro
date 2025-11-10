@@ -98,8 +98,8 @@ const metadata = {
       </div>
 
       <!-- Technology List -->
-      <div class="max-w-3xl mx-auto">
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 justify-items-center">
+      <div class="max-w-5xl mx-auto px-8 md:px-12">
+        <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-6">
           {
             [
               { name: 'React', icon: 'tabler:brand-react', color: '#61DAFB' },
@@ -114,9 +114,9 @@ const metadata = {
               { name: 'Netlify', icon: 'tabler:server', color: '#00C7B7' },
             ].map((tech) => {
               return (
-                <li class="flex items-center gap-4 text-white">
-                  <Icon name={tech.icon} class="w-8 h-8 flex-shrink-0" style={`color: ${tech.color}`} />
-                  <span class="text-lg font-medium">{tech.name}</span>
+                <li class="flex items-center gap-3 text-white">
+                  <Icon name={tech.icon} class="w-7 h-7 flex-shrink-0" style={`color: ${tech.color}`} />
+                  <span class="text-base font-medium">{tech.name}</span>
                 </li>
               );
             })

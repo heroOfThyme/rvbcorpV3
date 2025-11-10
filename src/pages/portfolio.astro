@@ -1,8 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Hero2 from '~/components/widgets/Hero2.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import PortfolioGrid from '~/components/widgets/PortfolioGrid.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Our Portfolio | RVB Corp - Burlington Web Agency',
@@ -13,9 +12,8 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Section -->
-  <Hero2
+  <Hero
     tagline="Our Work"
-    image={{src: "~/assets/images/web-development-service-main.webp", alt: "Web Development Solutions"}}
     actions={[
       {
         variant: 'primary',
@@ -24,9 +22,9 @@ const metadata = {
         icon: 'tabler:arrow-right',
       },
       {
+        text: 'Learn About Us',
+        href: '/about',
         variant: 'secondary',
-        text: 'View Services',
-        href: '/web-development',
       },
     ]}
   >
@@ -36,10 +34,7 @@ const metadata = {
     <Fragment slot="subtitle">
       Explore the websites and digital solutions we've crafted for businesses. From local companies to growing enterprises, see how our Burlington-based team brings visions to life.
     </Fragment>
-  </Hero2>
-
-  <!-- Section Divider -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+  </Hero>
 
   <!-- All Projects Section -->
   <PortfolioGrid
@@ -99,25 +94,4 @@ const metadata = {
     </Fragment>
   </PortfolioGrid>
 
-  <!-- Section Divider -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-
-  <!-- CTA Section -->
-  <CallToAction
-    tagline="Ready to Start?"
-    title="Let's Build Your <span class='text-white'>Next Project</span>"
-    subtitle="Join the businesses who trust our Burlington-based team to create exceptional digital experiences. Let's bring your vision to life."
-    actions={[
-      {
-        text: 'Start Your Project',
-        href: '/contact#form',
-        icon: 'tabler:arrow-right',
-      },
-      {
-        text: 'View Our Services',
-        href: '/web-development',
-        variant: 'secondary',
-      },
-    ]}
-  />
 </Layout>

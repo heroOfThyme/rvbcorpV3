@@ -1,11 +1,10 @@
 ---
 import { APP_BLOG } from 'rvbcorp:config';
 import type { Post } from '~/types';
-
 import Image from '~/components/common/Image.astro';
-
 import { findImage } from '~/utils/images';
 import { getPermalink } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
   post: Post;
@@ -17,75 +16,101 @@ const image = await findImage(post.image);
 
 const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
 
-// Same gradient pattern as service cards
+// Simple alternating pattern - Purple, Pink
 const cardGradients = [
   'from-primary via-primary/90 to-secondary',
   'from-accent via-accent/90 to-primary',
-  'from-secondary via-secondary/90 to-primary',
-  'from-accent via-accent/90 to-primary',
-  'from-secondary via-secondary/90 to-primary',
-  'from-primary via-primary/90 to-secondary',
 ];
 ---
 
-<article
-  class="mb-6 transition-all duration-300 group intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
->
+<article class="group">
   {
     link ? (
-      <a href={link} class="block">
-        <div class={`relative min-h-[420px] bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-3xl flex flex-col hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-2xl overflow-hidden h-full`}>
+      <a href={link} class="block h-full">
+        <div class={`relative bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col hover:scale-[1.02] h-full`}>
+          {/* Post Image */}
           {image && (
-            <div class="w-full flex-shrink-0">
+            <div class="relative h-48 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10"></div>
               <Image
                 src={image}
-                class="w-full h-48 object-cover"
-                widths={[400, 900]}
-                width={400}
-                sizes="(max-width: 900px) 400px, 900px"
                 alt={post.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                widths={[400, 768]}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 loading="lazy"
                 decoding="async"
               />
+
+              {/* Category Badge */}
+              {post.category && (
+                <div class="absolute top-4 left-4 z-20">
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-white/20 text-white backdrop-blur-md border border-white/30">
+                    {post.category.title}
+                  </span>
+                </div>
+              )}
             </div>
           )}
 
+          {/* Content Section */}
           <div class="p-8 flex flex-col flex-grow">
-            <h3 class="text-2xl font-bold text-white mb-4 leading-tight flex-shrink-0">
+            {/* Post Title */}
+            <h3 class="text-2xl font-bold text-white mb-3 leading-tight">
               {post.title}
             </h3>
 
-            <p class="text-white/90 leading-relaxed flex-grow">{post.excerpt}</p>
+            {/* Excerpt - Fixed 3 lines */}
+            <p class="text-white/90 leading-relaxed mb-6 text-base line-clamp-3">
+              {post.excerpt}
+            </p>
+
+            {/* Tags */}
+            {post.tags && post.tags.length > 0 && (
+              <div class="flex flex-wrap gap-2 mb-6">
+                {post.tags.slice(0, 3).map((tag) => (
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-white/15 text-white backdrop-blur-sm border border-white/25">
+                    {tag.title}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Spacer to push content to bottom */}
+            <div class="flex-grow"></div>
+
+            {/* Read More Button */}
+            <div class="flex items-center text-white font-semibold mb-4">
+              <span class="mr-2">Read More</span>
+              <Icon name="tabler:arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </div>
+
+            {/* Reading Time & Date */}
+            <div class="pt-4 border-t border-white/20">
+              <span class="text-white/70 text-sm flex items-center gap-2 font-medium">
+                <Icon name="tabler:calendar" class="w-4 h-4" />
+                {new Date(post.publishDate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric'
+                })}
+                {post.readingTime && (
+                  <>
+                    <span class="mx-1">•</span>
+                    {post.readingTime} min read
+                  </>
+                )}
+              </span>
+            </div>
           </div>
 
-          {/* Subtle hover overlay */}
-          <div class="absolute inset-0 bg-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          {/* Enhanced hover overlay */}
+          <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"></div>
         </div>
       </a>
     ) : (
-      <div class={`relative min-h-[420px] bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-3xl flex flex-col shadow-xl overflow-hidden h-full`}>
-        {image && (
-          <div class="w-full flex-shrink-0">
-            <Image
-              src={image}
-              class="w-full h-48 object-cover"
-              widths={[400, 900]}
-              width={400}
-              sizes="(max-width: 900px) 400px, 900px"
-              alt={post.title}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        )}
-
-        <div class="p-8 flex flex-col flex-grow">
-          <h3 class="text-2xl font-bold text-white mb-4 leading-tight flex-shrink-0">
-            {post.title}
-          </h3>
-
-          <p class="text-white/90 leading-relaxed flex-grow">{post.excerpt}</p>
-        </div>
+      <div class={`relative bg-gradient-to-br ${cardGradients[index % cardGradients.length]} rounded-3xl overflow-hidden shadow-xl h-full flex flex-col`}>
+        {/* Same content but without link wrapper */}
       </div>
     )
   }

@@ -69,33 +69,48 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
       <!-- Links Sections -->
       {
         links.map(({ title, links }, sectionIndex) => (
-          <div class="col-span-6 md:col-span-3 lg:col-span-2">
+          <div class:list={[
+            "col-span-6 md:col-span-3 lg:col-span-2",
+            { "lg:col-start-9": sectionIndex === 0 }
+          ]}>
             <div class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{title}</div>
             {links && Array.isArray(links) && links.length > 0 && (
               <ul class="text-sm space-y-3">
                 {links.map(({ text, href, ariaLabel }) => (
                   <li>
-                    <a
-                      class="text-muted hover:text-[rgb(198,134,255)] transition-all duration-300 inline-flex items-center group"
-                      href={href}
-                      aria-label={ariaLabel}
-                      target={href?.startsWith('http') ? '_blank' : undefined}
-                      rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    >
-                      {title === 'Get in Touch' ? (
-                        <span class="flex items-center">
-                          {text.includes('@') && <Icon name="tabler:mail" class="w-4 h-4 mr-2 flex-shrink-0" />}
-                          {text.includes('(') && <Icon name="tabler:phone" class="w-4 h-4 mr-2 flex-shrink-0" />}
-                          {!text.includes('@') && !text.includes('(') && <Icon name="tabler:map-pin" class="w-4 h-4 mr-2 flex-shrink-0" />}
+                    {href ? (
+                      <a
+                        class="text-muted hover:text-[rgb(198,134,255)] transition-all duration-300 inline-flex items-center group"
+                        href={href}
+                        aria-label={ariaLabel}
+                        target={href?.startsWith('http') ? '_blank' : undefined}
+                        rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      >
+                        {title === 'Get in Touch' ? (
+                          <span class="flex items-center">
+                            {text.includes('@') && <Icon name="tabler:mail" class="w-4 h-4 mr-2 flex-shrink-0" />}
+                            {text.includes('(') && <Icon name="tabler:phone" class="w-4 h-4 mr-2 flex-shrink-0" />}
+                            {!text.includes('@') && !text.includes('(') && <Icon name="tabler:map-pin" class="w-4 h-4 mr-2 flex-shrink-0" />}
+                            <Fragment set:html={text} />
+                          </span>
+                        ) : (
                           <Fragment set:html={text} />
-                        </span>
-                      ) : (
-                        <>
-                          <span class="mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[rgb(198,134,255)]">→</span>
+                        )}
+                      </a>
+                    ) : (
+                      <span class="text-muted inline-flex items-center">
+                        {title === 'Get in Touch' ? (
+                          <span class="flex items-center">
+                            {text.includes('@') && <Icon name="tabler:mail" class="w-4 h-4 mr-2 flex-shrink-0" />}
+                            {text.includes('(') && <Icon name="tabler:phone" class="w-4 h-4 mr-2 flex-shrink-0" />}
+                            {!text.includes('@') && !text.includes('(') && <Icon name="tabler:map-pin" class="w-4 h-4 mr-2 flex-shrink-0" />}
+                            <Fragment set:html={text} />
+                          </span>
+                        ) : (
                           <Fragment set:html={text} />
-                        </>
-                      )}
-                    </a>
+                        )}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>

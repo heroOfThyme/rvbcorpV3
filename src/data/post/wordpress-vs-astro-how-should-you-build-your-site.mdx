@@ -13,7 +13,6 @@ metadata:
   canonical: https://rvbcorp.com/wordpress-vs-astro-how-should-you-build-your-site
 ---
 
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 ## Introduction
 
@@ -90,23 +89,3 @@ Brand integration, UX/UI design, performance optimization, e-commerce configurat
 
 Send us a message via our [Contact](/contact#form) page or drop us an email at [info@rvbcorp.com](mailto:info@rvbcorp.com). We’re excited to bring you a quality website that delivers.
 
-<CallToAction
-    actions={[
-        {
-            text: 'Contact Us',
-            href: '/contact#form',
-            target: '_self',
-            variant: 'primary',
-        },
-        ]}
-    >
-        <Fragment slot="title">
-          Ready to Transform Your Business?
-        </Fragment>
-
-        <Fragment slot="subtitle">
-          Let’s build something <span class="text-primary">amazing</span> together. 
-          Contact us today to discuss your project and discover how we can help you <span class="text-primary">achieve</span> your goals.
-        </Fragment>
-
-  </CallToAction>

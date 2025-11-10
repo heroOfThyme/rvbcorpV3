@@ -13,7 +13,6 @@ metadata:
 
 ---
 
-import CallToAction from '~/components/widgets/CallToAction.astro';
 import Button from '~/components/ui/Button.astro';
 
 <div class="max-w-5xl mx-auto">
@@ -117,22 +116,4 @@ import Button from '~/components/ui/Button.astro';
 
 </div>
 
-<CallToAction
-    actions={[
-        {
-            text: 'Start Your Project',
-            href: '/contact#form',
-            target: '_self',
-            variant: 'primary',
-        },
-        ]}
-    >
-        <Fragment slot="title">
-          Ready for a new site?
-        </Fragment>
 
-        <Fragment slot="subtitle">
-          Let's talk about what you need and build something that works.
-        </Fragment>
-
-  </CallToAction>

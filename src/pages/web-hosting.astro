@@ -3,7 +3,6 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero2 from '~/components/widgets/Hero2.astro';
 import GradientFeatures from '~/components/widgets/GradientFeatures.astro';
-import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features from '~/components/widgets/Features.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
@@ -92,47 +91,6 @@ const metadata = {
         icon: 'tabler:certificate',
       },
     ]}
-  />
-
-  <!-- Section Divider -->
-  <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-
-  <!-- Hosting Benefits Section -->
-  <Content
-    id="benefits"
-    title="Why Professional Hosting Matters"
-    subtitle="The foundation of your online success starts with reliable hosting"
-    content="<p>Your website is often the first impression customers have of your business. Slow loading times, security vulnerabilities, or downtime can cost you customers and damage your reputation.</p><p>Our professional hosting solutions provide the reliable foundation your business needs to succeed online, with enterprise-grade infrastructure at affordable prices.</p>"
-    items={[
-      {
-        title: 'Scalable Infrastructure',
-        description:
-          'Hosting plans that grow with your business, allowing easy upgrades as your traffic and storage needs increase.',
-        icon: 'tabler:trending-up',
-      },
-      {
-        title: 'Easy Management',
-        description:
-          'User-friendly control panels make managing your website, email accounts, and databases simple and intuitive.',
-        icon: 'tabler:dashboard',
-      },
-      {
-        title: 'Global Performance',
-        description: 'Content delivery networks ensure fast loading times for visitors anywhere in the world.',
-        icon: 'tabler:world',
-      },
-      {
-        title: 'WordPress Optimized',
-        description:
-          'Specialized tools and optimization for WordPress websites, including easy installation and management.',
-        icon: 'tabler:brand-wordpress',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80',
-      alt: 'Global network infrastructure showing connected servers',
-    }}
-    isReversed
   />
 
   <!-- Section Divider -->
@@ -314,8 +272,8 @@ const metadata = {
         icon: 'tabler:server',
       },
       {
-        text: 'Contact Us',
-        href: '/contact',
+        text: 'See Our Work',
+        href: '/portfolio',
         variant: 'secondary',
       },
     ]}

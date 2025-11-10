@@ -74,14 +74,6 @@ export const footerData = {
         { text: 'Contact', href: getPermalink('/contact') },
       ],
     },
-    {
-      title: 'Get in Touch',
-      links: [
-        { text: 'hello@rvbcorp.com', href: 'mailto:hello@rvbcorp.com' },
-        { text: '(365) 324-0642', href: 'tel:3653240642' },
-        { text: 'Burlington, ON', href: '#' },
-      ],
-    },
   ],
   secondaryLinks: [
     { text: 'Terms', href: getPermalink('/terms') },

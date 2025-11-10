@@ -35,16 +35,13 @@ const {
 
   {
     image && (
-      <div class="w-full h-32 md:h-64 lg:h-80 rounded-xl mx-auto overflow-hidden shadow-lg">
+      <div class="w-full max-w-5xl mx-auto">
         {typeof image === 'string' ? (
           <Fragment set:html={image} />
         ) : (
           <Image
-            class="w-full h-full object-cover rounded-xl"
-            width="auto"
-            height={320}
-            widths={[400, 768]}
-            layout="fullWidth"
+            class="w-full h-auto rounded-xl shadow-lg"
+            widths={[400, 768, 1024]}
             {...image}
           />
         )}
